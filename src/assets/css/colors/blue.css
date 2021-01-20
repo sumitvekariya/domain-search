@@ -1,162 +1,97 @@
-.bg-primary,
-.btn-primary,
-.btn-outline-primary:hover, 
-.btn-outline-primary:focus, 
-.btn-outline-primary:active, 
-.btn-outline-primary.active, 
-.btn-outline-primary.focus, 
-.btn-outline-primary:not(:disabled):not(.disabled):active,
-.btn-soft-primary:hover, 
-.btn-soft-primary:focus, 
-.btn-soft-primary:active, 
-.btn-soft-primary.active, 
-.btn-soft-primary.focus,
-.badge-primary,
-.pagination .page-item.active .page-link,
-.custom-control-input:checked ~ .custom-control-label:before,
-.social-icon li a:hover,
-::selection,
-#topnav .navbar-toggle.open span:hover,
-.services:hover.serv-primary,
-.watch-video a .play-icon-circle,
-.pricing.hosting-rate:hover .plan-name,
-.owl-theme .owl-dots .owl-dot.active span,
-.owl-theme .owl-dots.clickable .owl-dot:hover span,
-.sidebar .widget .tagcloud > a:hover {
-    background-color: #39aed6 !important;
-}
+/*------------------------------------------------------------------
+ * Website Name: Antler
+ * App URI: http://inebur.com/antler/template/
+ * Author: inebur
+ * Author URI: http://inebur.com/
+ * Copyright 2018 Antler
+ * Version: 1.0 
 
-.text-primary,
-.btn-soft-primary,
-.btn-outline-primary,
-.alert-outline-primary,
-.badge-outline-primary,
-.faq-content .card a.faq[data-toggle=collapse],
-.faq-content .card a.faq[data-toggle=collapse]:before,
-#topnav .has-submenu.active .submenu li.active > a,
-#topnav .navigation-menu > li > a:hover, #topnav .navigation-menu > li > a:active,
-#topnav .navigation-menu > li:hover > a,
-#topnav .navigation-menu > li.active > a,
-#topnav.scroll .navigation-menu > li:hover > a, #topnav.scroll .navigation-menu > li.active > a,
-#topnav.nav-sticky .navigation-menu.nav-light > li.active > a,
-#topnav.nav-sticky .navigation-menu.nav-light > li:hover > a, #topnav.nav-sticky .navigation-menu.nav-light > li.active > a,
-#topnav .navigation-menu > li .submenu li a:hover,
-#topnav .navigation-menu > li > a:hover,
-#topnav .navigation-menu > li .submenu li a:hover,
-#topnav .navigation-menu > li.has-submenu.open > a,
-#topnav .has-submenu.active a,
-.services .content .title:hover,
-.pricing.hosting-rate:hover.best-plan .lable .best,
-.blog-post .content .title:hover,
-.blog-post .content .post-meta .like:hover,
-.blog-post .content .post-meta .comment:hover,
-.blog-post .content .post-meta .read-more:hover,
-.sidebar .widget .catagory li a:hover,
-.sidebar .widget .post-recent .post-recent-content a:hover,
-.media-list .comment-desk a:hover,
-.breadcrumb .breadcrumb-item.active {
-    color: #39aed6 !important;
-}
+ * Blue Color Skin
+ -------------------------------------------------------------------*/
 
-.btn-primary,
-.btn-outline-primary,
-.btn-outline-primary:hover, 
-.btn-outline-primary:focus, 
-.btn-outline-primary:active, 
-.btn-outline-primary.active, 
-.btn-outline-primary.focus, 
-.btn-outline-primary:not(:disabled):not(.disabled):active,
-.btn-soft-primary:hover, 
-.btn-soft-primary:focus, 
-.btn-soft-primary:active, 
-.btn-soft-primary.active, 
-.btn-soft-primary.focus,
-.alert-primary,
-.alert-outline-primary,
-.badge-outline-primary,
-.pagination .page-item.active .page-link,
-.form-group .form-control:focus, .form-group .form-control.active,
-.custom-control-input:checked ~ .custom-control-label:before,
-.custom-control-input:focus ~ .custom-control-label::before,
-.form-control:focus,
-.social-icon li a:hover,
-#topnav .has-submenu.active .menu-arrow,
-#topnav.scroll .navigation-menu > li:hover > .menu-arrow, #topnav.scroll .navigation-menu > li.active > .menu-arrow,
-#topnav.nav-sticky .navigation-menu.nav-light > li:hover > .menu-arrow, #topnav.nav-sticky .navigation-menu.nav-light > li.active > .menu-arrow,
-#topnav .navigation-menu > li:hover > .menu-arrow {
-    border-color: #39aed6 !important;
-}
-
-a.text-primary:hover, 
-a.text-primary:focus, 
-a.text-primary:active, 
-a.text-primary.active, 
-a.text-primary.focus {
-    color: #2691b6 !important;
-}
-
-.btn-primary:hover, 
-.btn-primary:focus, 
-.btn-primary:active, 
-.btn-primary.active, 
-.btn-primary.focus {
-    background-color: #2691b6 !important;
-    border-color: #2691b6 !important;
-}
-
-.btn-primary,
-.btn-soft-primary:hover, 
-.btn-soft-primary:focus, 
-.btn-soft-primary:active, 
-.btn-soft-primary.active, 
-.btn-soft-primary.focus,
-.btn-outline-primary:hover, 
-.btn-outline-primary:focus, 
-.btn-outline-primary:active, 
-.btn-outline-primary.active, 
-.btn-outline-primary.focus, 
-.btn-outline-primary:not(:disabled):not(.disabled):active {
-    box-shadow: 0 3px 7px rgba(57, 174, 214, 0.5) !important;
-}
-
-.btn-soft-primary {
-    background-color: rgba(57, 174, 214, 0.15) !important;
-    border-color: rgba(57, 174, 214, 0.1) !important;
-    box-shadow: 0 3px 7px rgba(57, 174, 214, 0.2);
-}
-
-.alert-primary,
-.pagination .page-item .page-link:hover {
-    background-color: rgba(57, 174, 214, 0.9);
-}
-
-.alert-primary .alert-link {
-    color: #144e62;
-}
-
-.pagination .page-item .page-link:hover {
-    border-color: rgba(57, 174, 214, 0.9);
-}
-
-.services .icon {
-    border: 3px solid rgba(57, 174, 214, 0.2);
-    background-color: rgba(57, 174, 214, 0.065);
-}
-
-.play-icon i {
-    -webkit-text-stroke: 2px #39aed6;
-    -webkit-text-fill-color: transparent;
-}
-
-.play-icon i:hover {
-    -webkit-text-stroke: 2px #39aed6;
-    -webkit-text-fill-color: #39aed6;
-}
-
-.owl-theme .owl-dots .owl-dot span {
-    background: rgba(57, 174, 214, 0.5) !important;
-}
-
-.gradient-overlay {
-    background: linear-gradient(to right, #39aed6, #5368f1) !important;
-}
+/* Blue Light */
+svg #svg-ico{fill:#68cef5;}
+svg #svg-concept{stroke:#68cef5;}
+.golink{color:#68cef5 !important;border-bottom:solid 1px #68cef5;}
+.golink:hover{color:#68cef5 !important;}
+.bg-pink{background-color:#68cef5 !important;}
+.c-pink{color:#68cef5 !important;}
+.bb-pink{border-bottom:solid 1px #68cef5 !important;}
+.popover{border:solid 1px #68cef5;}
+.popover .arrow::before{border-top-color:#68cef5;}
+.popover .popover-header{background-color:#68cef5;}
+::selection{background:#68cef5;}
+.nav-menu .main-menu > .menu-item > .sub-menu > .menu-item a:hover{color:#68cef5;}
+.nav-menu .main-menu .menu-item .menu-large .service-list .service .media-body a:hover{color:#68cef5;}
+.megamenu .start-offer .inner{background-color:#68cef5;}
+.megamenu .service-list .service.special .media-body a:hover{color:#68cef5;}
+.megamenu .service-list .service .media-body a:hover{color:#68cef5;}
+.megamenu-list .service-list .service .media-body a:hover{color:#68cef5;}
+.team .wrapper:hover .team-info .desc{color:#68cef5;}
+.wpc-cloud-range .noUi-connect{background-color:#68cef5;}
+.wpc-cloud-range .noUi-tooltip:before{border-color:#68cef5 transparent transparent transparent;}
+.wpc-cloud-range .noUi-tooltip{background-color:#68cef5;}
+.wpc-cloud-range .noUi-horizontal .noUi-handle{background-color:#68cef5;}
+.wpc-vps-info .title .info{color:#68cef5;}
+.fullrock .closer{color:#68cef5 !important;}
+.form-control:focus{border:solid 1px #68cef5 !important;}
+.sec-bg5{background-color:#68cef5;}
+.total-grad{background:linear-gradient(-60deg, #68cef5 0%,#1697bf 100%) !important;}
+.total-grad-inverse{background:linear-gradient(240deg, #1697bf 0%,#68cef5 100%);}
+.total-grad-pink-blue-intense {background: linear-gradient(240deg, #000000 50%, #003d4a 100%);}
+.menu-wrap.fixed{background:linear-gradient(89deg,#1697bf 3%,#68cef5 98%);}
+.btn-default-pink{color:#68cef5;border:1px solid #68cef5;}
+.btn-default-pink:hover{background-color:#68cef5;}
+.btn-default-grad-purple-fill{background-image:linear-gradient(to right, #1697bf, #68cef5 40%, #68cef5 40%, #1697bf);}
+.btn-default-grad-purple-fill:hover{background-image:linear-gradient(to right, #1697bf, #68cef5 40%, #68cef5 40%, #1697bf);}
+.btn-default-pink-fill{background-color:#68cef5 !important;}
+.owl-theme .owl-dots .owl-dot.active span{border:solid 1px #68cef5 !important;}
+.pricing .wrapper .title{color:#68cef5;}
+.pricing .list-info{background-color:#68cef5;}
+.slick #slider .plan-container .title{color:#68cef5;}
+.tabs-header .btn-secondary:not(:disabled):not(.disabled).active{background-color:#68cef5 !important;}
+.tabs.offers-tabs .tabs-header .active{border-left:solid 1px #68cef5;color:#68cef5;}
+.tabs.offers-tabs .tabs-header .active:hover{color:#68cef5;}
+.fill-input:focus{border-color:#68cef5 !important;}
+.countdown .wrapper .clock div:first-child{border:solid 1px #68cef5;background-color:#68cef5;}
+.accordion.faq .panel-title.active{border-bottom:solid 1px #68cef5;}
+.blog .sidebar .heading.active{color:#68cef5;}
+.blog .sidebar .posts .tabs-header li.active{color:#68cef5;border-bottom-color:#68cef5;}
+.blog .sidebar .line.active:before{background-color:#68cef5;}
+.blog .media .media-heading a:hover{color:#68cef5;}
+.blog .wrap-blog .social-icon i{color:#68cef5;}
+.blog .sidebar .categories .heading a.active{color:#68cef5;}
+.blog .sidebar .categories .heading a:after{color:#68cef5;}
+.blog .sidebar .categories .heading span{color:#68cef5;}
+.circle-section .title-round{color:#68cef5;}
+.domain-prices li{color:#68cef5;}
+.maping .datacenters{background:#68cef5;}
+.footer .soc-icons i{color:#68cef5;}
+.included i{color:#68cef5;}
+.soc-icons-apply span{color:#68cef5;}
+.bigline{border:solid 1px #68cef5;}
+.smallline{border:solid 1px #68cef5;}
+.knowledge a{color:#68cef5;}
+.godown span{color:#68cef5;}
+.cd-filter-block input[type=radio]:checked + label::before, .cd-filter-block input[type=checkbox]:checked + label::before{border:solid 1px #68cef5 !important;background-color:#68cef5 !important;}
+.cd-filter-block select:hover{border:solid 1px #68cef5 !important;}
+.cd-filter-block input:focus,
+.cd-filter-block select:focus{border-color:#68cef5 !important;}
+.range-slider-input::-webkit-slider-runnable-track{background:#68cef5;}
+.range-slider-input::-webkit-slider-thumb{background:#68cef5;}
+.zoo-content .icoo i{background-color:#68cef5;}
+.services .service-wrap .pay img{border:solid 1px #68cef5;}
+.page-item.active .page-link{background-color:#68cef5 !important;border-color:#68cef5 !important;}
+.cd-filter-block input.range-slider-input{background-color:#68cef5 !important;}
+.range-slider-input::-webkit-slider-thumb{background-color:#68cef5 !important;}
+.range-slider-input::-moz-range-thumb{background-color:#68cef5 !important;}
+/* Blue Dark */
+.bg-purple{background-color:#1697bf !important;}
+.c-purple{color:#1697bf !important;}
+.sec-grad-white-to-purple{background:linear-gradient(90deg, #fff 70%, #1697bf 0%) !important;}
+.btn-default-purple{color:#1697bf;border:1px solid #1697bf;}
+.btn-default-purple:hover{background-color:#1697bf;}
+.btn-default-purple-fill{background-color:#1697bf !important;}
+.pricing .table .title{color:#1697bf;}
+.accordion.faq .panel-title.active{color:#1697bf !important;}
+.wpc-vps-info .price-wrap .title{background-color:#1697bf;}
