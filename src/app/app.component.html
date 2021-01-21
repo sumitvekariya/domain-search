@@ -50,7 +50,7 @@
                 <span class="icon"></span>
               </button>
               <ul class="main-menu nav navbar-nav navbar-right">
-                <li class="menu-item menu-item-has-children">
+                <!-- <li class="menu-item menu-item-has-children">
                   <a class="m-0 pr-1 v-stroke" href="#" data-i18n="[html]header.home"> </a>
                   <div class="badge badge-pill bg-purple mr-4 wow animated shake delay-1s">NEW</div>
                   <ul class="sub-menu">
@@ -72,7 +72,7 @@
                       <div class="menu badge feat bg-pink">NEW</div>
                     </li>
                   </ul>
-                </li>
+                </li> -->
                 <li class="menu-item menu-item-has-children">
                   <a class="m-0 pr-1 v-stroke" href="#" data-i18n="[html]header.services"> </a>
                   <div class="badge badge-pill bg-purple mr-4">PRO</div>
@@ -81,21 +81,21 @@
                       <div class="service">
                         <img class="svg" src="assets/fonts/svg/cloudfiber.svg" alt="Shared Hosting">
                         <div class="media-body">
-                          <a class="menu-item" href="hosting" data-i18n="[html]submenu.hosting"> </a>
+                          <a class="menu-item" routerLink="hosting" data-i18n="[html]submenu.hosting"> </a>
                           <p>Sed ut perspiciatis unde omnis iste natus</p>
                         </div>
                       </div>
                       <div class="service">
                         <img class="svg" src="assets/fonts/svg/reseller.svg" alt="Cloud Reseller">
                         <div class="media-body">
-                          <a class="menu-item" href="reseller" data-i18n="[html]submenu.reseller"> </a>
+                          <a class="menu-item" routerLink="reseller" data-i18n="[html]submenu.reseller"> </a>
                           <p>Lorem ipsum dolor sit amet, consectetur</p>
                         </div>
                       </div>
                       <div class="service">
                         <img class="svg" src="assets/fonts/svg/dedicated.svg" alt="Dedicated Server">
                         <div class="media-body">
-                          <a class="menu-item" href="dedicated" data-i18n="[html]submenu.dedicated"> </a>
+                          <a class="menu-item" routerLink="dedicated" data-i18n="[html]submenu.dedicated"> </a>
                           <div class="menu badge feat bg-pink">FILTER</div>
                           <p>But I must explain to you how all this</p>
                         </div>
@@ -103,7 +103,7 @@
                       <div class="service">
                         <img class="svg" src="assets/fonts/svg/vps.svg" alt="Cloud VPS">
                         <div class="media-body">
-                          <a class="menu-item" href="vps" data-i18n="[html]submenu.vps"> </a>
+                          <a class="menu-item" routerLink="vps" data-i18n="[html]submenu.vps"> </a>
                           <div class="menu badge feat bg-grey">SSD</div>
                           <p>At vero eos et accusamus et iusto odio</p>
                         </div>
@@ -111,21 +111,21 @@
                       <div class="service">
                         <img class="svg" src="assets/fonts/svg/wordpress.svg" alt="WordPress Hosting">
                         <div class="media-body">
-                          <a class="menu-item" href="wordpress" data-i18n="[html]submenu.wordpress"> </a>
+                          <a class="menu-item" routerLink="wordpress" data-i18n="[html]submenu.wordpress"> </a>
                           <p>On the other hand, we denounce with</p>
                         </div>
                       </div>
                       <div class="service">
                         <img class="svg" src="assets/fonts/svg/domains.svg" alt="Domains">
                         <div class="media-body">
-                          <a class="menu-item" href="domains" data-i18n="[html]submenu.domains"> </a>
+                          <a class="menu-item" routerLink="domains" data-i18n="[html]submenu.domains"> </a>
                           <p>Lorem ipsum dolor sit amet, consectetur</p>
                         </div>
                       </div>
                       <div class="service">
                         <img class="svg" src="assets/fonts/svg/code.svg" alt="Developer Hosting">
                         <div class="media-body">
-                          <a class="menu-item" href="developer" data-i18n="[html]submenu.developer"> </a>
+                          <a class="menu-item" routerLink="developer" data-i18n="[html]submenu.developer"> </a>
                           <p>ed ut perspiciatis unde omnis iste natus</p>
                         </div>
                       </div>
@@ -149,8 +149,8 @@
                                 <ul class="sub-menu">
                                   <li class="menu-item"><a routerLink="email-security" data-i18n="[html]submenu.emailsecurity">
                                     </a></li>
-                                  <li class="menu-item"><a href="ssl" data-i18n="[html]submenu.ssl"> </a></li>
-                                  <li class="menu-item"><a href="email" data-i18n="[html]submenu.email"> </a></li>
+                                  <li class="menu-item"><a routerLink="ssl" data-i18n="[html]submenu.ssl"> </a></li>
+                                  <li class="menu-item"><a routerLink="email" data-i18n="[html]submenu.email"> </a></li>
                                   <li class="menu-item"><a href="magento" data-i18n="[html]submenu.magento"> </a></li>
                                   <li class="menu-item"><a href="gsuite" data-i18n="[html]submenu.gsuite"> </a></li>
                                   <li class="menu-item"><a href="iptv" data-i18n="[html]submenu.iptv"> </a></li>
@@ -172,7 +172,7 @@
                                   <li class="menu-item"><a href="datacenter" data-i18n="[html]submenu.datacenter"> </a>
                                     <div class="badge inside bg-grey">TOP</div>
                                   </li>
-                                  <li class="menu-item"><a href="about" data-i18n="[html]submenu.about"> </a></li>
+                                  <li class="menu-item"><a routerLink="about" data-i18n="[html]submenu.about"> </a></li>
                                   <li class="menu-item"><a href="database" data-i18n="[html]submenu.database"> </a></li>
                                   <li class="menu-item"><a href="elements" data-i18n="[html]submenu.elements"> </a></li>
                                   <li class="menu-item"><a href="voip" data-i18n="[html]submenu.voip"> </a></li>
@@ -190,7 +190,7 @@
                                 </div>
                                 <hr>
                                 <ul class="sub-menu">
-                                  <li class="menu-item"><a href="payments" data-i18n="[html]submenu.payments"> </a>
+                                  <li class="menu-item"><a routerLink="payments" data-i18n="[html]submenu.payments"> </a>
                                     <div class="badge inside bg-pink">NEW</div>
                                   </li>
                                   <li class="menu-item"><a href="configurator" data-i18n="[html]submenu.config"> </a>
@@ -198,10 +198,10 @@
                                   </li>
                                   <li class="menu-item"><a href="cart" data-i18n="[html]submenu.cart"> </a></li>
                                   <li class="menu-item"><a href="checkout" data-i18n="[html]submenu.checkout"> </a></li>
-                                  <li class="menu-item"><a href="soon" data-i18n="[html]submenu.soon"> </a></li>
-                                  <li class="menu-item"><a href="promos" data-i18n="[html]submenu.promos"> </a> <i
+                                  <li class="menu-item"><a routerLink="soon" data-i18n="[html]submenu.soon"> </a></li>
+                                  <li class="menu-item"><a routerLink="promos" data-i18n="[html]submenu.promos"> </a> <i
                                       class="fas fa-tags c-pink ml-2"></i></li>
-                                  <li class="menu-item"><a href="blackfriday" data-i18n="[html]submenu.blackfriday">
+                                  <li class="menu-item"><a routerLink="blackfriday" data-i18n="[html]submenu.blackfriday">
                                     </a>
                                     <div class="badge inside bg-pink">HOT</div>
                                   </li>
@@ -218,14 +218,14 @@
                               with SSD Storage.</div>
                             <span class="m-0">Before <del class="c-pink">$20.00 /mo</del></span><br>
                             <h5 class="m-0">Now <b class="c-pink">$9.99 /mo</b></h5>
-                            <a href="vps" class="btn btn-default-pink-fill mt-4">See Plans</a>
+                            <a routerLink="vps" class="btn btn-default-pink-fill mt-4">See Plans</a>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </li>
-                <li class="menu-item menu-item-has-children">
+                <!-- <li class="menu-item menu-item-has-children">
                   <a class="v-stroke" href="#" data-i18n="[html]header.features"></a>
                   <ul class="sub-menu">
                     <li class="menu-item"><a href="http://inebur.com/whmcs/?systpl=antler" target="_blank"
@@ -255,7 +255,7 @@
                     <li class="menu-item"><a href="elements" data-i18n="[html]submenu.elements"> </a></li>
                     <li class="menu-item"><a href="sections" data-i18n="[html]submenu.sections"> </a></li>
                   </ul>
-                </li>
+                </li> -->
                 <li class="menu-item menu-item-has-children menu-last">
                   <a class="v-stroke" href="#" data-i18n="[html]header.support"></a>
                   <div class="sub-menu megamenu">
@@ -268,7 +268,7 @@
                                 <img class="svg" src="assets/fonts/svg/bookmark.svg" alt="Knowledgebase">
                               </div>
                               <div class="media-body">
-                                <a class="menu-item" href="knowledgebase-list" data-i18n="[html]submenu.knowlist"> </a>
+                                <a class="menu-item" routerLink="knowledgebase-list" data-i18n="[html]submenu.knowlist"> </a>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
                               </div>
                             </div>
@@ -277,7 +277,7 @@
                                 <img class="svg" src="assets/fonts/svg/book.svg" alt="Knowledgebase">
                               </div>
                               <div class="media-body">
-                                <a class="menu-item" href="knowledgebase-article" data-i18n="[html]submenu.knowarticle">
+                                <a class="menu-item" routerLink="knowledgebase-article" data-i18n="[html]submenu.knowarticle">
                                 </a>
                                 <p>Eaque ipsa quae ab illo inventore veritatis et quasi</p>
                               </div>
@@ -287,7 +287,7 @@
                                 <img class="svg" src="assets/fonts/svg/emailopen.svg" alt="Knowledgebase">
                               </div>
                               <div class="media-body">
-                                <a class="menu-item" href="contact" data-i18n="[html]submenu.contact"> </a>
+                                <a class="menu-item" routerLink="contact" data-i18n="[html]submenu.contact"> </a>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
                               </div>
                             </div>
@@ -296,7 +296,7 @@
                                 <img class="svg" src="assets/fonts/svg/compare.svg" alt="Knowledgebase">
                               </div>
                               <div class="media-body">
-                                <a class="menu-item" href="legal" data-i18n="[html]submenu.legal"> </a>
+                                <a class="menu-item" routerLink="legal" data-i18n="[html]submenu.legal"> </a>
                                 <div class="badge inside bg-grey ml-1">NEW</div>
                                 <p>Eaque ipsa quae ab illo inventore veritatis et quasi</p>
                               </div>
@@ -307,7 +307,7 @@
                               </div>
                               <div class="media-body">
                                 <div>
-                                  <a class="menu-item" href="blog" data-i18n="[html]submenu.blog"> </a>
+                                  <a class="menu-item" routerLink="blog" data-i18n="[html]submenu.blog"> </a>
                                   <div class="badge inside bg-pink ml-1">HOT</div>
                                 </div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing</p>
@@ -318,7 +318,7 @@
                                 <img class="svg" src="assets/fonts/svg/question.svg" alt="Knowledgebase">
                               </div>
                               <div class="media-body">
-                                <a class="menu-item" href="faq" data-i18n="[html]submenu.faq"> </a>
+                                <a class="menu-item" routerLink="faq" data-i18n="[html]submenu.faq"> </a>
                                 <p>Eaque ipsa quae ab illo inventore veritatis et quasi</p>
                               </div>
                             </div>
@@ -329,7 +329,7 @@
                             <div class="title mb-2">Support Premium</div>
                             <div class="inner-content"><span>Call us:</span> <b>+ (123) 1300-656-1046</b> HeadQuarters -
                               No.01 - 399-0 Lorem Street City Melbourne</div>
-                            <a href="contact" class="btn btn-default-yellow-fill mt-4">Contact</a>
+                            <a routerLink="contact" class="btn btn-default-yellow-fill mt-4">Contact</a>
                           </div>
                         </div>
                       </div>
@@ -364,7 +364,7 @@
               <span class="icon"></span>
             </button>
             <div class="main-menu">
-              <div class="menu-item">
+              <!-- <div class="menu-item">
                 <a href="#" data-toggle="dropdown">Home <div class="badge badge-pill bg-purple">NEW</div></a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item menu-item" href="index">Home Default</a>
@@ -384,52 +384,52 @@
                     <div class="badge inside bg-pink ml-2">NEW</div>
                   </a>
                 </div>
-              </div>
+              </div> -->
               <div class="menu-item">
                 <a href="#" data-toggle="dropdown">Hosting <div class="badge badge-pill bg-purple">PRO</div></a>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item menu-item" href="hosting">Shared Hosting</a>
-                  <a class="dropdown-item menu-item" href="reseller">Cloud Reseller</a>
-                  <a class="dropdown-item menu-item" href="dedicated">Dedicated Server</a>
-                  <a class="dropdown-item menu-item" href="vps">Cloud VPS</a>
-                  <a class="dropdown-item menu-item" href="wordPress">WordPress Hosting</a>
-                  <a class="dropdown-item menu-item" href="domains">Domain Names</a>
-                  <a class="dropdown-item menu-item" href="developer">Developer Hosting</a>
+                  <a class="dropdown-item menu-item" routerLink="hosting">Shared Hosting</a>
+                  <a class="dropdown-item menu-item" routerLink="reseller">Cloud Reseller</a>
+                  <a class="dropdown-item menu-item" routerLink="dedicated">Dedicated Server</a>
+                  <a class="dropdown-item menu-item" routerLink="vps">Cloud VPS</a>
+                  <a class="dropdown-item menu-item" routerLink="wordpress">WordPress Hosting</a>
+                  <a class="dropdown-item menu-item" routerLink="domains">Domain Names</a>
+                  <a class="dropdown-item menu-item" routerLink="developer">Developer Hosting</a>
                 </div>
               </div>
               <div class="menu-item">
                 <a href="#" data-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item menu-item" href="emailsecurity">Email Security</a>
-                  <a class="dropdown-item menu-item" href="ssl">SSL Certificates</a>
-                  <a class="dropdown-item menu-item" href="mail">Enterprise Email</a>
+                  <a class="dropdown-item menu-item" routerLink="email-security">Email Security</a>
+                  <a class="dropdown-item menu-item" routerLink="ssl">SSL Certificates</a>
+                  <a class="dropdown-item menu-item" routerLink="email">Enterprise Email</a>
                   <a class="dropdown-item menu-item" href="magento">Magento Pro</a>
                   <a class="dropdown-item menu-item" href="gsuite"> Suite - Google</a>
                   <a class="dropdown-item menu-item" href="iptv">IPTV System</a>
                   <a class="dropdown-item menu-item" href="ddos">DDoS Protection</a>
-                  <a class="dropdown-item menu-item" href="datacenter">Datacenter <div
+                  <a class="dropdown-item menu-item" routerLink="datacenter">Datacenter <div
                       class="badge inside bg-grey ml-2">
                       TOP</div></a>
-                  <a class="dropdown-item menu-item" href="about">bout Us</a>
+                  <a class="dropdown-item menu-item" routerLink="about">bout Us</a>
                   <a class="dropdown-item menu-item" href="database">Database-as-a-Service</a>
                   <a class="dropdown-item menu-item" href="elements">Elements</a>
                   <a class="dropdown-item menu-item" href="voip">Virtual Numbers</a>
                   <a class="dropdown-item menu-item" href="voice">Voice Server <div class="badge inside bg-pink ml-2">
                       NEW
                     </div></a>
-                  <a class="dropdown-item menu-item" href="payments">Payment Methods <div
+                  <a class="dropdown-item menu-item" routerLink="payments">Payment Methods <div
                       class="badge inside bg-pink ml-2">NEW</div></a>
                   <a class="dropdown-item menu-item" href="configurator">Configurator <div
                       class="badge inside bg-grey ml-2">HOT</div></a>
                   <a class="dropdown-item menu-item" href="cart">Cart</a>
                   <a class="dropdown-item menu-item" href="checkout">Checkout</a>
-                  <a class="dropdown-item menu-item" href="soon">Coming Soon</a>
-                  <a class="dropdown-item menu-item" href="promos">Promotions</a>
-                  <a class="dropdown-item menu-item" href="blackfriday">Blackfriday <div
+                  <a class="dropdown-item menu-item" routerLink="soon">Coming Soon</a>
+                  <a class="dropdown-item menu-item" routerLink="promos">Promotions</a>
+                  <a class="dropdown-item menu-item" routerLink="blackfriday">Blackfriday <div
                       class="badge inside bg-pink ml-2">HOT</div></a>
                 </div>
               </div>
-              <div class="menu-item">
+              <!-- <div class="menu-item">
                 <a href="#" data-toggle="dropdown">Features</a>
                 <div class="dropdown-menu">
                   <a class="dropdown-item menu-item" href="http://inebur.com/whmcs/?systpl=antler" target="_blank">WHMCS
@@ -450,16 +450,16 @@
                   <a class="dropdown-item menu-item" href="elements">Elements</a>
                   <a class="dropdown-item menu-item" href="sections">Sections</a>
                 </div>
-              </div>
+              </div> -->
               <div class="menu-item menu-last">
                 <a href="#" data-toggle="dropdown">Support</a>
                 <div class="dropdown-menu">
-                  <a class="dropdown-item menu-item" href="knowledgebase-list">Knowlege List</a>
-                  <a class="dropdown-item menu-item" href="knowledgebase-article">Knowlege Article</a>
-                  <a class="dropdown-item menu-item" href="contact">Contact Us</a>
-                  <a class="dropdown-item menu-item" href="legal">Legal</a>
-                  <a class="dropdown-item menu-item" href="blog">Blog</a>
-                  <a class="dropdown-item menu-item" href="faq">Faq</a>
+                  <a class="dropdown-item menu-item" routerLink="knowledgebase-list">Knowlege List</a>
+                  <a class="dropdown-item menu-item" routerLink="knowledgebase-article">Knowlege Article</a>
+                  <a class="dropdown-item menu-item" routerLink="contact">Contact Us</a>
+                  <a class="dropdown-item menu-item" routerLink="legal">Legal</a>
+                  <a class="dropdown-item menu-item" routerLink="blog">Blog</a>
+                  <a class="dropdown-item menu-item" routerLink="faq">Faq</a>
                 </div>
               </div>
               <div class="float-left w-100 mt-3">
@@ -523,28 +523,28 @@
         <div class="col-sm-6 col-md-3">
           <div class="heading">Hosting</div>
           <ul class="footer-menu">
-            <li class="menu-item"><a href="hosting">Shared Hosting</a></li>
-            <li class="menu-item"><a href="dedicated">Dedicated Server</a></li>
-            <li class="menu-item"><a href="vps">Cloud Virtual (VPS)</a></li>
-            <li class="menu-item"><a href="domains">Domain Names</a></li>
+            <li class="menu-item"><a routerLink="hosting">Shared Hosting</a></li>
+            <li class="menu-item"><a routerLink="dedicated">Dedicated Server</a></li>
+            <li class="menu-item"><a routerLink="vps">Cloud Virtual (VPS)</a></li>
+            <li class="menu-item"><a routerLink="domains">Domain Names</a></li>
           </ul>
         </div>
         <div class="col-sm-6 col-md-3">
           <div class="heading">Support</div>
           <ul class="footer-menu">
             <li class="menu-item"><a href="login">myAntler</a></li>
-            <li class="menu-item"><a href="knowledgebase-list">Knowledge Base</a></li>
-            <li class="menu-item"><a href="contact">Contact Us</a></li>
-            <li class="menu-item"><a href="faq">FAQ</a></li>
+            <li class="menu-item"><a routerLink="knowledgebase-list">Knowledge Base</a></li>
+            <li class="menu-item"><a routerLink="contact">Contact Us</a></li>
+            <li class="menu-item"><a routerLink="faq">FAQ</a></li>
           </ul>
         </div>
         <div class="col-sm-6 col-md-3">
           <div class="heading">Company</div>
           <ul class="footer-menu">
-            <li class="menu-item"><a href="about">About Us</a> </li>
-            <li class="menu-item"><a href="elements">Features</a></li>
-            <li class="menu-item"><a href="blog">Blog</a></li>
-            <li class="menu-item"><a href="legal">Legal</a></li>
+            <li class="menu-item"><a routerLink="about">About Us</a> </li>
+            <!-- <li class="menu-item"><a href="elements">Features</a></li> -->
+            <li class="menu-item"><a routerLink="blog">Blog</a></li>
+            <li class="menu-item"><a routerLink="legal">Legal</a></li>
           </ul>
         </div>
         <div class="col-sm-6 col-md-3">
