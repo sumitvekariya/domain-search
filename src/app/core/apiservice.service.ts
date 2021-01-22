@@ -22,7 +22,7 @@ export class APIService {
   private httpClient: HttpClient;
 
   protected get apiUrl(): string {
-    return this.environment.apiUrl;
+    return this.environment.apiUrl || 'https://www.secureserver.net/api/v1';
   }
 
   constructor(protected injector: Injector) {
