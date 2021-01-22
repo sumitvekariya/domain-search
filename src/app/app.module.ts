@@ -26,6 +26,9 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { LegalComponent } from './legal/legal.component';
 import { BlogComponent } from './blog/blog.component';
 import { FaqComponent } from './faq/faq.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import {CoreModule} from '../app/core/core/core.module';
 
 @NgModule({
   declarations: [
@@ -52,11 +55,14 @@ import { FaqComponent } from './faq/faq.component';
     ContactUsComponent,
     LegalComponent,
     BlogComponent,
-    FaqComponent
+    FaqComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule
+    AppRoutingModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
