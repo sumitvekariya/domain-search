@@ -12,6 +12,6 @@ export class DomainService extends APIService {
   }
 
   sendRequest(){
-    return this.http.get<any>("http://www.secureserver.net/api/explore/#!/search/search_getSpins?plid=499263&q=any");
+    return this.http.get<any>("https://www.secureserver.net/api/explore/#!/search/search_getSpins?plid=499263&q=any");
   }
 }
