@@ -24,7 +24,8 @@ export class HomeComponent implements OnInit {
     this.domainService.sendRequest(value).subscribe(res => {
       this.priceByTLD = groupBy(res.Products, 'Tld');
       this.recommendedDomains = res['RecommendedDomains'];
-
+      console.log(this.priceByTLD,"******",this.recommendedDomains);
+      
       this.document.getElementById('domain-list').scrollIntoView({
         behavior: 'smooth'
       });
