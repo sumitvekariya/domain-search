@@ -10,8 +10,10 @@
           <form class="mb-5" action="http://inebur.com/whmcs/domainchecker.php?carttpl=antler&systpl=antler"
             method="post">
             <div class="general-input w-50">
-              <input type="text" name="domain" placeholder="Get your next domain name here" class="fill-input">
-              <input type="submit" value="Search" class="btn btn-default-yellow-fill">
+              <input #domainSearchInput type="text" name="domain" placeholder="Get your next domain name here"
+                class="fill-input">
+              <input type="button" value="Search" class="btn btn-default-yellow-fill"
+                (click)="seacrh(domainSearchInput.value)">
             </div>
           </form>
           <a class="btn btn-default-pink-fill cd-filter-trigger wow animated shake delay-2s"><i
@@ -22,7 +24,7 @@
   </div>
 </div>
 <!-- ***** CONTROLS ***** -->
-<section class="cd-main-content mb-80 sec-up wow animated fadeInUp fast">
+<!-- <section class="cd-main-content mb-80 sec-up wow animated fadeInUp fast">
   <div class="cd-filter">
     <form>
       <div class="container">
@@ -103,9 +105,9 @@
       </div>
     </form>
   </div>
-</section>
+</section> -->
 <!-- ***** FILTER PLANS ***** -->
-<div class="mixcontainer sec-normal sec-bg2 motpath" data-ref="container">
+<div class="mixcontainer sec-normal sec-bg2 motpath" data-ref="container" id="domain-list">
   <div class="container ">
     <div class="pricing special">
       <div class="p-0 m-0">
@@ -118,124 +120,28 @@
                     <thead>
                       <tr>
                         <td class="bb-pink pt-0 title ">Extensions (TLD)</td>
-                        <td class="bb-pink pt-0 title">Register</td>
+                        <td class="bb-pink pt-0 title">Price</td>
                         <td class="bb-pink pt-0 title">Renew</td>
-                        <td class="bb-pink pt-0 title">Transfer</td>
+                        <td class="bb-pink pt-0 title">Add To Cart</td>
+                        <!-- <td class="bb-pink pt-0 title">Transfer</td> -->
                       </tr>
                     </thead>
-                    <tbody>
-                      <tr class="mix ext gtld  popular others .com">
+                    <tbody *ngFor="let d of recommendedDomains">
+                      <ng-container *ngTemplateOutlet="domainTableRow; context: prepareTableRow(d)"></ng-container>
+                      <ng-template #domainTableRow let-domain="domain" let-price="price">
                         <td>
-                          <div class="badge bg-grey mr-1">popular</div> <span class="c-black">.com</span>
+                          <div class="badge bg-pink mr-1">{{domain?.Fqdn?.split('.' + domain.Extension)[0]}}</div> <span
+                            class="c-black">.{{domain?.Extension}}</span>
                         </td>
-                        <td>$16.00</td>
-                        <td>$19.90</td>
-                        <td>$19.90</td>
-                      </tr>
-                      <tr class="mix ext gtld sale others  .info">
                         <td>
-                          <div class="badge bg-pink mr-1">sale</div> <span class="c-black">.info</span>
+                          <span *ngIf="price?.PriceInfo?.TotalCurrentPrice !== price?.PriceInfo?.TotalListPrice"
+                            class="ltgh">${{price?.PriceInfo?.TotalListPrice}}</span>
+                          <b class="c-pink">${{price?.PriceInfo?.TotalCurrentPrice}}</b>
                         </td>
-                        <td><span class="ltgh">$11.90</span> <b class="c-pink">$7.99</b></td>
-                        <td>$11.90</td>
-                        <td>$14.00</td>
-                      </tr>
-                      <tr class="mix ext ngtld newest health .hospital">
-                        <td>
-                          <div class="badge bg-purple mr-1">newest</div> <span class="c-black">.hospital</span>
-                        </td>
-                        <td>$52.24</td>
-                        <td>$52.24</td>
-                        <td>$59.00</td>
-                      </tr>
-                      <tr class="mix ext gtld popular others .org">
-                        <td>
-                          <div class="badge bg-grey mr-1">popular</div> <span class="c-black">.org</span>
-                        </td>
-                        <td>$9.00</td>
-                        <td>$12.90</td>
-                        <td>$12.90</td>
-                      </tr>
-                      <tr class="mix ext gtld others .co.uk">
-                        <td> <span class="c-black">.co.uk</span></td>
-                        <td>$32.00</td>
-                        <td>$36.90</td>
-                        <td>$36.90</td>
-                      </tr>
-                      <tr class="mix ext ngtld newest health .healthcare">
-                        <td>
-                          <div class="badge bg-purple mr-1">newest</div> <span class="c-black">.healthcare</span>
-                        </td>
-                        <td>$32.00</td>
-                        <td>$36.90</td>
-                        <td>$36.90</td>
-                      </tr>
-                      <tr class="mix ext ngtld sale technology .blog">
-                        <td>
-                          <div class="badge bg-pink mr-1">sale</div> <span class="c-black">.blog</span>
-                        </td>
-                        <td><span class="ltgh">$45.10</span> <b class="c-pink">$26.00</b></td>
-                        <td>$45.10</td>
-                        <td>$45.10</td>
-                      </tr>
-                      <tr class="mix ext ngtld newest commerce .banque">
-                        <td>
-                          <div class="badge bg-purple mr-1">newest</div> <span class="c-black">.banque</span>
-                        </td>
-                        <td>$32.00</td>
-                        <td>$36.90</td>
-                        <td>$36.90</td>
-                      </tr>
-                      <tr class="mix ext cctld popular .eu">
-                        <td>
-                          <div class="badge bg-grey mr-1">popular</div> <span class="c-black">.eu</span>
-                        </td>
-                        <td>$5.80</td>
-                        <td>$5.80</td>
-                        <td>$7.00</td>
-                      </tr>
-                      <tr class="mix ext cctld popular .pt">
-                        <td>
-                          <div class="badge bg-grey mr-1">popular</div> <span class="c-black">.pt</span>
-                        </td>
-                        <td>$13.00</td>
-                        <td>$13.00</td>
-                        <td>$19.90</td>
-                      </tr>
-                      <tr class="mix ext ngtld newest business .company">
-                        <td> <span class="c-black">.company</span></td>
-                        <td>$13.00</td>
-                        <td>$13.00</td>
-                        <td>$19.90</td>
-                      </tr>
-                      <tr class="mix ext ngtld newest social .church">
-                        <td> <span class="c-black">.church</span></td>
-                        <td>$42.00</td>
-                        <td>$42.00</td>
-                        <td>$42.00</td>
-                      </tr>
-                      <tr class="mix ext ngtld sale social .democrat">
-                        <td>
-                          <div class="badge bg-pink mr-1">sale</div><span class="c-black">.democrat</span>
-                        </td>
-                        <td><span class="ltgh">$35.10</span> <b class="c-pink">$19.00</b></td>
-                        <td>$35.10</td>
-                        <td>$42.90</td>
-                      </tr>
-                      <tr class="mix ext ngtld popular educations .academy">
-                        <td> <span class="c-black">.academy</span></td>
-                        <td>$112.10</td>
-                        <td>$112.10</td>
-                        <td>$112.10</td>
-                      </tr>
-                      <tr class="mix ext ngtld sale health .dentist">
-                        <td>
-                          <div class="badge bg-pink mr-1">sale</div><span class="c-black">.dentist</span>
-                        </td>
-                        <td><span class="ltgh">$50.10</span> <b class="c-pink">$25.05</b></td>
-                        <td>$50.10</td>
-                        <td>$72.90</td>
-                      </tr>
+                        <td>${{price?.PriceInfo?.RenewalPrice}}</td>
+                        <td><a target="_blank" [href]="domain?.AddToCartCallback"
+                            class="btn btn-default-yellow-fill">Add To Cart</a></td>
+                      </ng-template>
                     </tbody>
                   </table>
                 </div>
