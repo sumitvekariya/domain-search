@@ -116,18 +116,19 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="table-responsive-lg">
-                  <table class="table compare">
-                    <thead>
+                  <table class="table compare" *ngIf="recommendedDomains?.length > 0;else elseBlock">
+                    <!-- <thead>
                       <tr>
                         <td class="bb-pink pt-0 title ">Extensions (TLD)</td>
                         <td class="bb-pink pt-0 title">Price</td>
                         <td class="bb-pink pt-0 title">Renew</td>
-                        <td class="bb-pink pt-0 title">Add To Cart</td>
-                        <!-- <td class="bb-pink pt-0 title">Transfer</td> -->
-                      </tr>
-                    </thead>
+                        <td class="bb-pink pt-0 title">Add To Cart</td>-->
+                    <!-- <td class="bb-pink pt-0 title">Transfer</td>-->
+                    <!-- </tr> -->
+                    <!-- </thead> -->
+
                     <tbody *ngFor="let d of recommendedDomains">
-                      <ng-container *ngTemplateOutlet="domainTableRow; context: prepareTableRow(d)"></ng-container>
+                      <!-- <ng-container *ngTemplateOutlet="domainTableRow; context: prepareTableRow(d)"></ng-container>
                       <ng-template #domainTableRow let-domain="domain" let-price="price">
                         <td>
                           <div class="badge bg-pink mr-1">{{domain?.Fqdn?.split('.' + domain.Extension)[0]}}</div> <span
@@ -141,13 +142,48 @@
                         <td>${{price?.PriceInfo?.RenewalPrice}}</td>
                         <td><a target="_blank" [href]="domain?.AddToCartCallback"
                             class="btn btn-default-yellow-fill">Add To Cart</a></td>
+                      </ng-template> -->
+                      <ng-container *ngTemplateOutlet="domainTableRow; context: prepareTableRow(d)"></ng-container>
+                      <ng-template #domainTableRow let-domain="domain" let-price="price">
+                        <tr>
+                          <div class="card">
+                            <div class="card-body">
+                              <table class="table" style="border: none !important;">
+                                <tr class="card-text">
+                                  <td>Premium <span><i class="fa fa-question-circle"></i></span></td>
+                                  <td style="text-align:right;" colspan="2">Call 1-800-1210120 for buying aassistance
+                                  </td>
+                                </tr>
+                                <tr class="card-text">
+                                  <td>
+                                    <h3><b>{{domain?.Fqdn?.split('.' + domain.Extension)[0]}}.{{domain?.Extension}}</b>
+                                    </h3>
+                                  </td>
+                                  <td style="text-align: right;"><span
+                                      *ngIf="price?.PriceInfo?.TotalCurrentPrice !== price?.PriceInfo?.TotalListPrice"
+                                      class="ltgh">${{price?.PriceInfo?.TotalListPrice}}</span><b
+                                      class="c-pink">${{price?.PriceInfo?.TotalCurrentPrice}}*</b>
+                                    <br>
+                                    <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span>
+                                  </td>
+                                  <td>
+                                    <span><button type="submit" class="btn btn-primary">Add to Cart</button></span>
+                                  </td>
+                                </tr>
+                              </table>
+                            </div>
+                          </div>
+                        </tr>
                       </ng-template>
                     </tbody>
                   </table>
+                  <ng-template #elseBlock>
+                    <h2> We are here to help you to search Domains.</h2>
+                  </ng-template>
                 </div>
               </div>
             </div>
-            <div class="cd-fail-message">" No items could be found matching the criteria "</div>
+            <div class="cd-fail-message">"No items could be found matching the criteria"</div>
           </div>
         </div>
       </div>
