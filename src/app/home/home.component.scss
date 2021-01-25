@@ -1,0 +1,5 @@
+:host::ng-deep {
+    .table tbody+tbody {
+        border: none;
+    }
+}

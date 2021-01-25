@@ -146,7 +146,7 @@
                       <ng-container *ngTemplateOutlet="domainTableRow; context: prepareTableRow(d)"></ng-container>
                       <ng-template #domainTableRow let-domain="domain" let-price="price">
                         <tr>
-                          <div class="card">
+                          <div class="card mt-2 mb-2">
                             <div class="card-body">
                               <table class="table" style="border: none !important;">
                                 <tr class="card-text">
@@ -155,19 +155,20 @@
                                   </td>
                                 </tr>
                                 <tr class="card-text">
-                                  <td>
+                                  <td class="border-0">
                                     <h3><b>{{domain?.Fqdn?.split('.' + domain.Extension)[0]}}.{{domain?.Extension}}</b>
                                     </h3>
                                   </td>
-                                  <td style="text-align: right;"><span
+                                  <td class="border-0" style="text-align: right;"><span
                                       *ngIf="price?.PriceInfo?.TotalCurrentPrice !== price?.PriceInfo?.TotalListPrice"
                                       class="ltgh">${{price?.PriceInfo?.TotalListPrice}}</span><b
                                       class="c-pink">${{price?.PriceInfo?.TotalCurrentPrice}}*</b>
                                     <br>
                                     <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span>
                                   </td>
-                                  <td>
-                                    <span><button type="submit" class="btn btn-primary">Add to Cart</button></span>
+                                  <td class="border-0">
+                                    <span><button type="submit" class="btn btn-primary float-right">Add to
+                                        Cart</button></span>
                                   </td>
                                 </tr>
                               </table>
