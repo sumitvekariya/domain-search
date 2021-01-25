@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
         this.priceByTLD = groupBy(spin.Products, 'Tld');
         this.recommendedDomains = spin['RecommendedDomains'];
 
-        this.document.getElementById('domain-list').scrollIntoView({
+        this.document.getElementById('exact').scrollIntoView({
           behavior: 'smooth'
         });
       });

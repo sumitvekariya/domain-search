@@ -7,15 +7,14 @@
         <div class="wrapper">
           <h1 class="heading">Filter Perfect Domain Name</h1>
           <h3 class="subheading mb-4">Choose from hundreds of extensions and put your website in the world.</h3>
-          <form class="mb-5" action="http://inebur.com/whmcs/domainchecker.php?carttpl=antler&systpl=antler"
-            method="post">
+          <div class="mb-5">
             <div class="general-input w-50">
               <input #domainSearchInput type="text" name="domain" placeholder="Get your next domain name here"
-                class="fill-input">
+                class="fill-input" (keyup.enter)="seacrh(domainSearchInput.value)">
               <input type="button" value="Search" class="btn btn-default-yellow-fill"
                 (click)="seacrh(domainSearchInput.value)">
             </div>
-          </form>
+          </div>
           <a class="btn btn-default-pink-fill cd-filter-trigger wow animated shake delay-2s"><i
               class="fa fa-filter"></i> Show Filter</a>
         </div>
@@ -24,15 +23,61 @@
   </div>
 </div>
 <!-- ***** CONTROLS ***** -->
-<!-- <section class="cd-main-content mb-80 sec-up wow animated fadeInUp fast">
+<section class="cd-main-content mb-80 sec-up wow animated fadeInUp fast" id="exact" *ngIf="exactMatchDomain">
   <div class="cd-filter">
     <form>
       <div class="container">
         <div class="sec-main pb-5 sec-bg1">
-          <div class="plans badge feat bg-pink">filter</div>
+          <div class="plans badge feat bg-pink">{{exactMatchDomain?.available ? 'Available' :
+            'Taken'}}</div>
           <div class="row">
             <a href="#0" class="cd-close"><i class="fas fa-long-arrow-alt-left"></i></a>
-            <div class="col-md-6">
+            <div class="col-sm-12">
+              <div class="table-responsive-lg">
+                <table class="table compare">
+                  <tbody>
+                    <tr>
+                      <div class="card mt-2 mb-2">
+                        <div class="card-body p-0">
+                          <table class="table border-0">
+                            <tr class="card-text bg-pink">
+                              <td class="pl-3 pt-2 pb-2 text-white">{{exactMatchDomain?.available ? 'Available' :
+                                'Taken'}}
+                                <span><i class="fa fa-question-circle"></i></span>
+                              </td>
+                              <td class="pt-2 pb-2 text-white" style="text-align:right;" colspan="2">Call
+                                1-800-1210120 for
+                                buying aassistance
+                              </td>
+                            </tr>
+                            <tr class="card-text">
+                              <td class="border-0 pl-3">
+                                <h3>
+                                  <span>{{exactMatchDomain?.domain}} {{' '}} {{exactMatchDomain?.available ? 'is
+                                    available' : 'is not available'}}</span>
+                                </h3>
+                              </td>
+                              <td class="border-0" *ngIf="exactMatchDomain?.available" style="text-align: right;">
+                                <span *ngIf="exactMatchDomain?.salePrice !== exactMatchDomain?.listPrice"
+                                  class="ltgh">${{exactMatchDomain?.listPrice}}</span>
+                                <b class="c-pink">{{exactMatchDomain?.salePrice}}*</b>
+                                <br>
+                                <!-- <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span> -->
+                              </td>
+                              <td class="border-0" *ngIf="exactMatchDomain?.available">
+                                <span><button type="submit" class="btn btn-primary float-right">Add to
+                                    Cart</button></span>
+                              </td>
+                            </tr>
+                          </table>
+                        </div>
+                      </div>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- <div class="col-md-6">
               <div class="cd-filter-block">
                 <h4>Highlight</h4>
                 <ul class="radio-group radios-filter cd-filter-content list">
@@ -99,13 +144,13 @@
             <div class="range-disabled">
               <input name="minSize" class="range-slider-input tooltip-parent" type="range" min="0" max="5" value="0" />
               <input name="maxSize" class="range-slider-input tooltip-parent" type="range" min="0" max="5" value="5" />
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
     </form>
   </div>
-</section> -->
+</section>
 <!-- ***** FILTER PLANS ***** -->
 <div class="mixcontainer sec-normal sec-bg2 motpath" data-ref="container" id="domain-list">
   <div class="container ">
@@ -113,54 +158,6 @@
       <div class="p-0 m-0">
         <div class="best-plans pricing">
           <div class="sec-main sec-bg1">
-
-            <div class="row" *ngIf="exactMatchDomain">
-              <div class="col-sm-12">
-                <div class="table-responsive-lg">
-                  <table class="table compare">
-                    <tbody>
-                      <tr>
-                        <div class="card mt-2 mb-2">
-                          <div class="card-body p-0">
-                            <table class="table border-0">
-                              <tr class="card-text bg-pink">
-                                <td class="pl-3 pt-2 pb-2 text-white">{{exactMatchDomain?.available ? 'Available' :
-                                  'Taken'}}
-                                  <span><i class="fa fa-question-circle"></i></span>
-                                </td>
-                                <td class="pt-2 pb-2 text-white" style="text-align:right;" colspan="2">Call
-                                  1-800-1210120 for
-                                  buying aassistance
-                                </td>
-                              </tr>
-                              <tr class="card-text">
-                                <td class="border-0 pl-3">
-                                  <h3>
-                                    <span>{{exactMatchDomain?.domain}} {{' '}} {{exactMatchDomain?.available ? 'is
-                                      available' : 'is not available'}}</span>
-                                  </h3>
-                                </td>
-                                <td class="border-0" *ngIf="exactMatchDomain?.available" style="text-align: right;">
-                                  <span *ngIf="exactMatchDomain?.salePrice !== exactMatchDomain?.listPrice"
-                                    class="ltgh">${{exactMatchDomain?.listPrice}}</span>
-                                  <b class="c-pink">{{exactMatchDomain?.salePrice}}*</b>
-                                  <br>
-                                  <!-- <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span> -->
-                                </td>
-                                <td class="border-0" *ngIf="exactMatchDomain?.available">
-                                  <span><button type="submit" class="btn btn-primary float-right">Add to
-                                      Cart</button></span>
-                                </td>
-                              </tr>
-                            </table>
-                          </div>
-                        </div>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
 
             <div class="row">
               <div class="col-sm-12">
