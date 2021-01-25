@@ -9,7 +9,11 @@ export class DomainService extends APIService {
     super(injector);
   }
 
-  sendRequest(searchString: string) {
+  searchSpin(searchString: string) {
     return super.get<any>(`search/spins?plid=499263&q=${searchString}`);
+  }
+
+  searchRecommended(searchString: string) {
+    return super.get<any>(`domains/499263?pageSize=5&q=${searchString}`);
   }
 }

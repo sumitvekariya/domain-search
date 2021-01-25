@@ -113,60 +113,99 @@
       <div class="p-0 m-0">
         <div class="best-plans pricing">
           <div class="sec-main sec-bg1">
+
+            <div class="row" *ngIf="exactMatchDomain">
+              <div class="col-sm-12">
+                <div class="table-responsive-lg">
+                  <table class="table compare">
+                    <tbody>
+                      <tr>
+                        <div class="card mt-2 mb-2">
+                          <div class="card-body p-0">
+                            <table class="table border-0">
+                              <tr class="card-text bg-pink">
+                                <td class="pl-3 pt-2 pb-2 text-white">{{exactMatchDomain?.available ? 'Available' :
+                                  'Taken'}}
+                                  <span><i class="fa fa-question-circle"></i></span>
+                                </td>
+                                <td class="pt-2 pb-2 text-white" style="text-align:right;" colspan="2">Call
+                                  1-800-1210120 for
+                                  buying aassistance
+                                </td>
+                              </tr>
+                              <tr class="card-text">
+                                <td class="border-0 pl-3">
+                                  <h3>
+                                    <span>{{exactMatchDomain?.domain}} {{' '}} {{exactMatchDomain?.available ? 'is
+                                      available' : 'is not available'}}</span>
+                                  </h3>
+                                </td>
+                                <td class="border-0" *ngIf="exactMatchDomain?.available" style="text-align: right;">
+                                  <span *ngIf="exactMatchDomain?.salePrice !== exactMatchDomain?.listPrice"
+                                    class="ltgh">${{exactMatchDomain?.listPrice}}</span>
+                                  <b class="c-pink">{{exactMatchDomain?.salePrice}}*</b>
+                                  <br>
+                                  <!-- <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span> -->
+                                </td>
+                                <td class="border-0" *ngIf="exactMatchDomain?.available">
+                                  <span><button type="submit" class="btn btn-primary float-right">Add to
+                                      Cart</button></span>
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+                        </div>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
             <div class="row">
               <div class="col-sm-12">
                 <div class="table-responsive-lg">
                   <table class="table compare" *ngIf="recommendedDomains?.length > 0;else elseBlock">
-                    <!-- <thead>
-                      <tr>
-                        <td class="bb-pink pt-0 title ">Extensions (TLD)</td>
-                        <td class="bb-pink pt-0 title">Price</td>
-                        <td class="bb-pink pt-0 title">Renew</td>
-                        <td class="bb-pink pt-0 title">Add To Cart</td>-->
-                    <!-- <td class="bb-pink pt-0 title">Transfer</td>-->
-                    <!-- </tr> -->
-                    <!-- </thead> -->
-
                     <tbody *ngFor="let d of recommendedDomains">
-                      <!-- <ng-container *ngTemplateOutlet="domainTableRow; context: prepareTableRow(d)"></ng-container>
-                      <ng-template #domainTableRow let-domain="domain" let-price="price">
-                        <td>
-                          <div class="badge bg-pink mr-1">{{domain?.Fqdn?.split('.' + domain.Extension)[0]}}</div> <span
-                            class="c-black">.{{domain?.Extension}}</span>
-                        </td>
-                        <td>
-                          <span *ngIf="price?.PriceInfo?.TotalCurrentPrice !== price?.PriceInfo?.TotalListPrice"
-                            class="ltgh">${{price?.PriceInfo?.TotalListPrice}}</span>
-                          <b class="c-pink">${{price?.PriceInfo?.TotalCurrentPrice}}</b>
-                        </td>
-                        <td>${{price?.PriceInfo?.RenewalPrice}}</td>
-                        <td><a target="_blank" [href]="domain?.AddToCartCallback"
-                            class="btn btn-default-yellow-fill">Add To Cart</a></td>
-                      </ng-template> -->
                       <ng-container *ngTemplateOutlet="domainTableRow; context: prepareTableRow(d)"></ng-container>
                       <ng-template #domainTableRow let-domain="domain" let-price="price">
                         <tr>
                           <div class="card mt-2 mb-2">
-                            <div class="card-body">
+                            <div class="card-body" [ngClass]="{'pt-0 pb-0': domain.Inventory === 'registry_premium'}">
                               <table class="table" style="border: none !important;">
-                                <tr class="card-text">
+                                <tr class="card-text" *ngIf="domain.Inventory === 'registry_premium'">
                                   <td>Premium <span><i class="fa fa-question-circle"></i></span></td>
                                   <td style="text-align:right;" colspan="2">Call 1-800-1210120 for buying aassistance
                                   </td>
                                 </tr>
                                 <tr class="card-text">
-                                  <td class="border-0">
-                                    <h3><b>{{domain?.Fqdn?.split('.' + domain.Extension)[0]}}.{{domain?.Extension}}</b>
+                                  <td class="border-0"
+                                    [ngClass]="{'p-1 pb-1': domain.Inventory !== 'registry_premium'}">
+                                    <h3>
+                                      <b *ngIf="domain.Inventory === 'registry_premium'; else noPremium">{{domain?.Fqdn?.split('.'
+                                        + domain.Extension)[0]}}.{{domain?.Extension}}</b>
+                                      <ng-template #noPremium>
+                                        <span>{{domain?.Fqdn?.split('.' +
+                                          domain.Extension)[0]}}.{{domain?.Extension}}</span>
+                                      </ng-template>
                                     </h3>
                                   </td>
-                                  <td class="border-0" style="text-align: right;"><span
+                                  <td class="border-0" [ngClass]="{'p-1 pb-1': domain.Inventory !== 'registry_premium'}"
+                                    style="text-align: right;"><span
                                       *ngIf="price?.PriceInfo?.TotalCurrentPrice !== price?.PriceInfo?.TotalListPrice"
-                                      class="ltgh">${{price?.PriceInfo?.TotalListPrice}}</span><b
+                                      class="ltgh">${{price?.PriceInfo?.TotalListPrice}}</span>
+                                    <b *ngIf="domain.Inventory === 'registry_premium'; else noPremiumPrice"
                                       class="c-pink">${{price?.PriceInfo?.TotalCurrentPrice}}*</b>
+                                    <ng-template #noPremiumPrice>
+                                      <span class="c-pink">${{price?.PriceInfo?.TotalCurrentPrice}}*</span>
+                                    </ng-template>
+
+
                                     <br>
                                     <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span>
                                   </td>
-                                  <td class="border-0">
+                                  <td class="border-0"
+                                    [ngClass]="{'pt-1 pb-1': domain.Inventory !== 'registry_premium'}">
                                     <span><button type="submit" class="btn btn-primary float-right">Add to
                                         Cart</button></span>
                                   </td>
