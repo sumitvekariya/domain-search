@@ -172,5 +172,8 @@
       }
     }
   },
-  "defaultProject": "domain-search"
+  "defaultProject": "domain-search",
+  "cli": {
+    "analytics": false
+  }
 }
