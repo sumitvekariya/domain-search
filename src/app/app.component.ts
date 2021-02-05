@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DomainService } from './core/domain.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'domain-search';
+
+  constructor(
+    private domainService: DomainService
+  ) {
+    this.domainService.cart().subscribe();
+  }
 }

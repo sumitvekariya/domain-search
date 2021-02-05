@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomainService } from '../../core/domain.service';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  cart = null;
+  constructor(
+    public domainService: DomainService
+  ) {
+    this.domainService.cartVal$.subscribe(c => this.cart = c);
+  }
 
   ngOnInit(): void {
   }
 
-  
+
 
 }

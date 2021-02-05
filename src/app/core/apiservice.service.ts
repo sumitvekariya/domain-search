@@ -11,18 +11,16 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-import { environment } from '../../app/environments/environment';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class APIService {
-  protected environment = environment;
   private httpClient: HttpClient;
 
   protected get apiUrl(): string {
-    return this.environment.apiUrl || 'https://www.secureserver.net/api/v1';
+    return environment.apiURL || 'https://www.secureserver.net/api/v1';
   }
 
   constructor(protected injector: Injector) {

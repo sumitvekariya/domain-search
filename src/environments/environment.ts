@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiURL: 'https://www.secureserver.net/api/v1',
+  plID: '499263'
 };
 
 /*

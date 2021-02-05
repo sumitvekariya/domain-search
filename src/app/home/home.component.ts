@@ -3,6 +3,7 @@ import { DomainService } from '../core/domain.service';
 import { groupBy } from 'lodash';
 import { DOCUMENT } from '@angular/common';
 import { forkJoin } from 'rxjs';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private domainService: DomainService,
+    private router: Router,
     @Inject(DOCUMENT) private document: Document
   ) { }
 
@@ -51,6 +53,21 @@ export class HomeComponent implements OnInit {
     const price = this.priceByTLD[domain.Extension];
     const domainPrice = price.length ? price[0] : price.find(p => p.ProductId === domain.ProductId);
     return { domain, price: domainPrice }
+  }
+
+  async addToCart(type, domain) {
+    console.log(type, domain)
+
+    const cart = await this.domainService.cart().toPromise();
+    const items = JSON.stringify([{ id: type, domain }]);
+    this.domainService.addToCart(items).subscribe({
+      next: (d) => {
+        this.document.location.href = cart.nextStepUrl;
+      },
+      error: (e) => {
+        console.log(e, cart);
+      }
+    })
   }
 
 }

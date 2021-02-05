@@ -31,7 +31,7 @@
           <div class="plans badge feat bg-pink">{{exactMatchDomain?.available ? 'Available' :
             'Taken'}}</div>
           <div class="row">
-            <a href="#0" class="cd-close"><i class="fas fa-long-arrow-alt-left"></i></a>
+            <a class="cd-close"><i class="fas fa-long-arrow-alt-left"></i></a>
             <div class="col-sm-12">
               <div class="table-responsive-lg">
                 <table class="table compare">
@@ -65,8 +65,12 @@
                                 <!-- <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span> -->
                               </td>
                               <td class="border-0" *ngIf="exactMatchDomain?.available">
-                                <span><button type="submit" class="btn btn-primary float-right">Add to
-                                    Cart</button></span>
+                                <span>
+                                  <button type="button" class="btn btn-primary float-right"
+                                    (click)="addToCart('domain', exactMatchDomain.domain)">
+                                    Register
+                                  </button>
+                                </span>
                               </td>
                             </tr>
                           </table>
@@ -203,8 +207,12 @@
                                   </td>
                                   <td class="border-0"
                                     [ngClass]="{'pt-1 pb-1': domain.Inventory !== 'registry_premium'}">
-                                    <span><button type="submit" class="btn btn-primary float-right">Add to
-                                        Cart</button></span>
+                                    <span>
+                                      <button type="submit" class="btn btn-primary float-right"
+                                        (click)="addToCart('domain', domain.Fqdn)">
+                                        Register
+                                      </button>
+                                    </span>
                                   </td>
                                 </tr>
                               </table>
