@@ -62,6 +62,7 @@ export class HomeComponent implements OnInit {
     const items = JSON.stringify([{ id: type, domain }]);
     this.domainService.addToCart(items).subscribe({
       next: (d) => {
+        console.log(d);
         this.document.location.href = cart.nextStepUrl;
       },
       error: (e) => {

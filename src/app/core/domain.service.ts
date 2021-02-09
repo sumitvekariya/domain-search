@@ -32,7 +32,7 @@ export class DomainService extends APIService {
 
   addToCart(items) {
     const params = new HttpParams().set('items', items).set('skipCrossSell', 'false').set('isc', '');
-    let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded', 'access-control-allow-origin': "http://localhost:4200/" });
+    let headers = new HttpHeaders({ 'Content-Type': 'application/x-www-form-urlencoded' });
     return super.post<any>(`cart/${environment.plID}/?redirect=false`, params.toString(), { headers, withCredentials: true })
   }
 }
