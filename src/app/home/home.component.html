@@ -79,7 +79,7 @@
                         <div class="btn-group" role="group">
                           <div class="card-text" *ngFor="let suggestion of suggestedDomain">
                             <button type="button" class="btn btn-primary btn-"
-                              (click)="addDomain(suggestion)">{{suggestion.domain}}</button>
+                              (click)="addDomain(suggestion);">{{suggestion.domain}}</button>
                           </div>
                         </div>
                       </div>
@@ -91,7 +91,7 @@
                           <div class="card-body p-0">
                             <table class="table border-0">
                               <tr class="card-text bg-pink">
-                                <td class="pl-3 pt-2 pb-2 text-white">{{selectedDomain?.available ? 'Available' :
+                                <td class="pl-3 pt-2 pb-2 text-white">{{selectedDomain.exactMatchDomain?.available ? 'Available' :
                                   'Taken'}}
                                   <span><i class="fa fa-question-circle"></i></span>
                                 </td>
@@ -103,21 +103,21 @@
                               <tr class="card-text">
                                 <td class="border-0 pl-3">
                                   <h3>
-                                    <span>{{selectedDomain?.domain}} {{' '}} {{selectedDomain?.available ? 'is
+                                    <span>{{selectedDomain.exactMatchDomain?.domain}} {{' '}} {{selectedDomain.exactMatchDomain?.available ? 'is
                                       available' : 'is not available'}}</span>
                                   </h3>
                                 </td>
-                                <td class="border-0" *ngIf="exactMatchDomain?.available" style="text-align: right;">
-                                  <span *ngIf="exactMatchDomain?.salePrice !== exactMatchDomain?.listPrice"
-                                    class="ltgh">${{selectedDomain?.listPrice}}</span>
-                                  <b class="c-pink">{{selectedDomain?.salePrice}}*</b>
+                                <td class="border-0" *ngIf="selectedDomain.exactMatchDomain?.available" style="text-align: right;">
+                                  <span *ngIf="selectedDomain.exactMatchDomain?.salePrice !== selectedDomain.exactMatchDomain?.listPrice"
+                                    class="ltgh">${{selectedDomain.exactMatchDomain?.listPrice}}</span>
+                                  <b class="c-pink">{{selectedDomain.exactMatchDomain?.salePrice}}*</b>
                                   <br>
                                   <!-- <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span> -->
                                 </td>
-                                <td class="border-0" *ngIf="selectedDomain?.available">
+                                <td class="border-0" *ngIf="selectedDomain.exactMatchDomain?.available">
                                   <span>
                                     <button type="button" class="btn btn-primary float-right"
-                                      (click)="addToCart('domain', selectedDomain.domain)">
+                                      (click)="addToCart('domain', selectedDomain.exactMatchDomain.domain)">
                                       Register
                                     </button>
                                   </span>
@@ -127,9 +127,9 @@
                           </div>
                           <p class="card-text">Other Suggestions</p>
                           <div class="btn-group" role="group">
-                            <div class="card-text" *ngFor="let suggestion of suggestedDomain">
+                            <div class="card-text" *ngFor="let suggestion of selectedDomain.suggestedDomain">
                               <button type="button" class="btn btn-primary btn-"
-                                (click)="addDomain(suggestion)">{{suggestion.domain}}</button>
+                                (click)="addDomain(suggestion);">{{suggestion.domain}}</button>
                             </div>
                           </div>
                         </div>
