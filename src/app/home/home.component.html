@@ -75,13 +75,19 @@
                             </tr>
                           </table>
                         </div>
+                        <p class="card-text">Other Suggestions</p>
+                        <div class="btn-group" role="group">
+                          <div class="card-text" *ngFor="let suggestion of suggestedDomain">
+                          <button type="submit" class="btn btn-primary btn-">{{suggestion.domain}}</button>
+                        </div>
                       </div>
-                    </tr>
-                  </tbody>
-                </table>
               </div>
+              </tr>
+              </tbody>
+              </table>
             </div>
-            <!-- <div class="col-md-6">
+          </div>
+          <!-- <div class="col-md-6">
               <div class="cd-filter-block">
                 <h4>Highlight</h4>
                 <ul class="radio-group radios-filter cd-filter-content list">
@@ -149,10 +155,10 @@
               <input name="minSize" class="range-slider-input tooltip-parent" type="range" min="0" max="5" value="0" />
               <input name="maxSize" class="range-slider-input tooltip-parent" type="range" min="0" max="5" value="5" />
             </div> -->
-          </div>
         </div>
       </div>
-    </form>
+  </div>
+  </form>
   </div>
 </section>
 <!-- ***** FILTER PLANS ***** -->
