@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
   recommendedDomains = [];
   priceByTLD = null;
   exactMatchDomain;
-  suggestedDomain: any;
+  suggestedDomain;
+  intrestedDomain = [];
 
   constructor(
     private domainService: DomainService,
@@ -23,22 +24,25 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // forkJoin([this.domainService.searchRecommended('test12sd'), this.domainService.searchSpin('test')]).subscribe(([exact, spin]) => {
-    //   this.exactMatchDomain = exact?.exactMatchDomain;
-    // });
+    
+  }
+
+  addDomain(domain :any){
+    this.intrestedDomain.push(domain);
+    console.log(this.intrestedDomain);
+    
   }
 
   seacrh(value: string) {
     forkJoin([this.domainService.searchRecommended(value), this.domainService.searchSpin(value)])
       .subscribe(([exact, spin]) => {
-        console.log("Exact",exact);
-        console.log("spin",spin);
         
         this.exactMatchDomain = exact?.exactMatchDomain;
         this.suggestedDomain = exact?.suggestedDomains
         this.priceByTLD = groupBy(spin.Products, 'Tld');
         this.recommendedDomains = spin['RecommendedDomains'];
-
+        console.log(this.recommendedDomains);
+        
         this.document.getElementById('exact').scrollIntoView({
           behavior: 'smooth'
         });
