@@ -53,8 +53,10 @@
                             <tr class="card-text">
                               <td class="border-0 pl-3">
                                 <h3>
-                                  <span>{{exactMatchDomain?.domain}} {{' '}} {{exactMatchDomain?.available ? 'is
-                                    available' : 'is not available'}}</span>
+                                  <span>{{exactMatchDomain?.domain}} {{' '}} 
+                                    <sup><span *ngIf="exactMatchDomain?.available" class="badge badge-pill badge-success">Available</span></sup>
+                                    <sup><span *ngIf="!exactMatchDomain?.available" class="badge badge-pill badge-danger">Not Available</span></sup>
+                                  </span>
                                 </h3>
                               </td>
                               <td class="border-0" *ngIf="exactMatchDomain?.available" style="text-align: right;">
@@ -103,14 +105,16 @@
                               <tr class="card-text">
                                 <td class="border-0 pl-3">
                                   <h3>
-                                    <span>{{selectedDomain.exactMatchDomain?.domain}} {{' '}} {{selectedDomain.exactMatchDomain?.available ? 'is
-                                      available' : 'is not available'}}</span>
+                                    <span>{{selectedDomain.exactMatchDomain?.domain}} {{' '}}
+                                      <sup><span *ngIf="selectedDomain.exactMatchDomain?.available" class="font-weight-light badge badge-pill badge-success">Available</span></sup>
+                                      <sup><span *ngIf="!selectedDomain.exactMatchDomain?.available" class="font-weight-light badge badge-pill badge-danger">Not Available</span></sup>
+                                    </span>
                                   </h3>
                                 </td>
                                 <td class="border-0" *ngIf="selectedDomain.exactMatchDomain?.available" style="text-align: right;">
                                   <span *ngIf="selectedDomain.exactMatchDomain?.salePrice !== selectedDomain.exactMatchDomain?.listPrice"
                                     class="ltgh">${{selectedDomain.exactMatchDomain?.listPrice}}</span>
-                                  <b class="c-pink">{{selectedDomain.exactMatchDomain?.salePrice}}*</b>
+                                  <b class="c-pink">{{selectedDomain.exactMatchDomain?.salePrice}}/y*</b>
                                   <br>
                                   <!-- <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span> -->
                                 </td>
@@ -125,7 +129,7 @@
                               </tr>
                             </table>
                           </div>
-                          <p class="card-text">Other Suggestions</p>
+                          <p class="font-weight-light card-text">Other Suggestions</p>
                           <div class="btn-group" role="group">
                             <div class="card-text" *ngFor="let suggestion of selectedDomain.suggestedDomain">
                               <button type="button" class="btn btn-primary btn-"
