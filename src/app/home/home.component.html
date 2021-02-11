@@ -74,14 +74,17 @@
                                   </button>
                                 </span>
                               </td>
+                              <td>
+                                <button type="button" class="btn btn-danger btn-lg rounded-0 float-right" (click)="removeCard(exactMatchDomain)"><i class="fa fa-lg fa-times"></i></button>
+                              </td>
                             </tr>
                           </table>
                         </div>
-                        <p class="card-text">Other Suggestions</p>
-                        <div class="btn-group" role="group">
+                        <p class="font-weight-light card-text" style="margin-left: 10px;">Other Suggestions</p>
+                        <div class="btn-group" role="group" style="margin-left:10px;margin-bottom: 5px;">
                           <div class="card-text" *ngFor="let suggestion of suggestedDomain">
-                            <button type="button" class="btn btn-primary btn-"
-                              (click)="addDomain(suggestion);">{{suggestion.domain}}</button>
+                            <button type="button" class="btn btn-primary"
+                              (click)="addDomain(suggestion);" style="margin-right: 5px;">{{suggestion.domain}}</button>
                           </div>
                         </div>
                       </div>
@@ -126,14 +129,17 @@
                                     </button>
                                   </span>
                                 </td>
+                                <td>
+                                  <button type="button" class="btn btn-danger rounded-0 btn-lg float-right" (click)="removeCard(selectedDomain)"><i class="fa fa-lg fa-times"></i></button>
+                                </td>
                               </tr>
                             </table>
                           </div>
-                          <p class="font-weight-light card-text">Other Suggestions</p>
-                          <div class="btn-group" role="group">
+                          <p class="font-weight-light card-text" style="margin-left: 10px;">Other Suggestions</p>
+                          <div class="btn-group" role="group" style="margin-left: 10px;margin-bottom: 5px;">
                             <div class="card-text" *ngFor="let suggestion of selectedDomain.suggestedDomain">
-                              <button type="button" class="btn btn-primary btn-"
-                                (click)="addDomain(suggestion);">{{suggestion.domain}}</button>
+                              <button type="button" class="btn btn-primary"
+                                (click)="addDomain(suggestion);" style="margin-right: 5px;">{{suggestion.domain}}</button>
                             </div>
                           </div>
                         </div>

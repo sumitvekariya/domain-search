@@ -65,8 +65,17 @@ export class HomeComponent implements OnInit {
         });
         this.intrestedDomain.push({exactMatchDomain:this.eDomain,suggestedDomain:this.sDomain,priceByTLD:this.pByTLD,recommendedDomains:this.recDomains});
       });    
+    // console.log(this.intrestedDomain);
+  }
+
+  removeCard(value:any){
+    
+    if(this.intrestedDomain.indexOf(value) > -1){
+      this.intrestedDomain.splice(this.intrestedDomain.indexOf(value),1);
+    }
     console.log(this.intrestedDomain);
   }
+
   prepareTableRow(domain) {
     const price = this.priceByTLD[domain.Extension];
     const domainPrice = price.length ? price[0] : price.find(p => p.ProductId === domain.ProductId);
