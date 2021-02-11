@@ -1,57 +1,50 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { AboutUsComponent } from './about-us/about-us.component';
-import { BlackFridayComponent } from './black-friday/black-friday.component';
-import { BlogComponent } from './blog/blog.component';
-import { CloudResellerComponent } from './cloud-reseller/cloud-reseller.component';
-import { CloudVpsComponent } from './cloud-vps/cloud-vps.component';
-import { ComingSoonComponent } from './coming-soon/coming-soon.component';
-import { ContactUsComponent } from './contact-us/contact-us.component';
-import { DatacenterComponent } from './datacenter/datacenter.component';
-import { DedicatedServersComponent } from './dedicated-servers/dedicated-servers.component';
-import { DeveloperHostingComponent } from './developer-hosting/developer-hosting.component';
-import { DomainsNamesComponent } from './domains-names/domains-names.component';
-import { EmailSecurityComponent } from './email-security/email-security.component';
-import { EnterpriseEmailComponent } from './enterprise-email/enterprise-email.component';
-import { FaqComponent } from './faq/faq.component';
+import { RouterModule, Routes } from '@angular/router';
+import { SearchComponent } from './Domains/search/search.component';
+import { TransferComponent } from './Domains/transfer/transfer.component';
+import { ProfessionalComponent } from './Email/professional/professional.component';
+import { WorkspaceComponent } from './Email/workspace/workspace.component';
 import { HomeComponent } from './home/home.component';
-import { KnowledgeArticleComponent } from './knowledge-article/knowledge-article.component';
-import { KnowledgeListComponent } from './knowledge-list/knowledge-list.component';
-import { LegalComponent } from './legal/legal.component';
-import { PaymentMethodsComponent } from './payment-methods/payment-methods.component';
-import { SharedHostingComponent } from './shared-hosting/shared-hosting.component';
-import { SpecialsComponent } from './specials/specials.component';
-import { SslCertificateComponent } from './ssl-certificate/ssl-certificate.component';
-import { WordpressHostingComponent } from './wordpress-hosting/wordpress-hosting.component';
+import { BusinessComponent } from './Hosting/business/business.component';
+import { CpanelComponent } from './Hosting/cpanel/cpanel.component';
+import { DedicatedComponent } from './Hosting/dedicated/dedicated.component';
+import { PleskComponent } from './Hosting/plesk/plesk.component';
+import { VPSComponent } from './Hosting/vps/vps.component';
+import { WordpressComponent } from './Hosting/wordpress/wordpress.component';
+import { EmailMarketingComponent } from './Marketing/email-marketing/email-marketing.component';
+import { SeoComponent } from './Marketing/seo/seo.component';
+import { NodataComponent } from './nodata/nodata.component';
+import { ResellerComponent } from './reseller/reseller.component';
+import { SSLComponent } from './Security/ssl/ssl.component';
+import { WebsiteBackupComponent } from './Security/website-backup/website-backup.component';
+import { WebsiteSecurityComponent } from './Security/website-security/website-security.component';
 
-const routes: Routes = [{path:'',component:HomeComponent,pathMatch:'full'},
-                        {path:'email-security',loadChildren: () => import('./email-security/email-security.module').then(m => m.EmailSecurityModule)},
-                        {path:'ssl',loadChildren: () => import('./ssl-certificate/ssl-certificate.module').then(m => m.SslCertificateModule) },
-                        {path:'email',loadChildren: () => import('./enterprise-email/enterprise-email.module').then(m => m.EnterpriseEmailModule) },
-                        {path:'datacenter',loadChildren: () => import('./datacenter/datacenter.module').then(m => m.DatacenterModule) },
-                        {path:'payments',loadChildren: () => import('./payment-methods/payment-methods.module').then(m => m.PaymentMethodsModule) },
-                        {path:'soon',loadChildren: () => import('./coming-soon/coming-soon.module').then(m => m.ComingSoonModule) },
-                        {path:'promos',loadChildren: () => import('./specials/specials.module').then(m => m.SpecialsModule) },
-                        {path:'blackfriday',loadChildren: () => import('./black-friday/black-friday.module').then(m => m.BlackFridayModule) },
-                        {path:'hosting',loadChildren: () => import('./shared-hosting/shared-hosting.module').then(m => m.SharedHostingModule) },
-                        {path:'reseller',loadChildren: () => import('./cloud-reseller/cloud-reseller.module').then(m => m.CloudResellerModule) },
-                        {path:'dedicated',loadChildren: () => import('./dedicated-servers/dedicated-servers.module').then(m => m.DedicatedServersModule) },
-                        {path:'vps',loadChildren: () => import('./cloud-vps/cloud-vps.module').then(m => m.CloudVpsModule) },
-                        {path:'wordpress',loadChildren: () => import('./wordpress-hosting/wordpress-hosting.module').then(m => m.WordpressHostingModule) },
-                        {path:'domains',loadChildren: () => import('./domains-names/domains-names.module').then(m => m.DomainsNamesModule) },
-                        {path:'developer',loadChildren: () => import('./developer-hosting/developer-hosting.module').then(m => m.DeveloperHostingModule) },
-                        {path:'knowledgebase-list',loadChildren: () => import('./knowledge-list/knowledge-list.module').then(m => m.KnowledgeListModule) },
-                        {path:'knowledgebase-article',loadChildren: () => import('./knowledge-article/knowledge-article.module').then(m => m.KnowledgeArticleModule) },
-                        {path:'contact',loadChildren: () => import('./contact-us/contact-us.module').then(m => m.ContactUsModule) },
-                        {path:'legal',loadChildren: () => import('./legal/legal.module').then(m => m.LegalModule) },
-                        {path:'blog',loadChildren: () => import('./blog/blog.module').then(m => m.BlogModule) },
-                        {path:'faq',loadChildren: () => import('./faq/faq.module').then(m => m.FaqModule) },
-                        { path: 'about', loadChildren: () => import('./about-us/about-us.module').then(m => m.AboutUsModule) },];
+
+const routes: Routes = [
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'domains/domain-name-search', component: SearchComponent },
+  { path: 'domains/domains-transfer', component: TransferComponent },
+  { path: 'hosting/cpanel-web-hosting', component: CpanelComponent },
+  { path: 'hosting/windows-web-hosting', component: PleskComponent },
+  { path: 'hosting/business-hosting', component: BusinessComponent },
+  { path: 'hosting/managed-wordpress-hosting', component: WordpressComponent },
+  { path: 'hosting/vps-hosting', component: VPSComponent },
+  { path: 'hosting/dedicated-server-hosting', component: DedicatedComponent },
+  { path: 'security/ssl-certificate', component: SSLComponent },
+  { path: 'security/website-security', component: WebsiteSecurityComponent },
+  { path: 'security/website-backup', component: WebsiteBackupComponent },
+  { path: 'marketing/email-marketing', component: EmailMarketingComponent },
+  { path: 'marketing/seo', component: SeoComponent },
+  { path: 'email/workspace-email', component: WorkspaceComponent },
+  { path: 'email/professional-email', component: ProfessionalComponent },
+  { path: 'join/partner-program', component: ResellerComponent },
+  { path: '**', component: NodataComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     initialNavigation: 'enabled'
-})],
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

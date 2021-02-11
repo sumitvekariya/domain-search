@@ -1,435 +1,423 @@
-<!-- ***** SLIDER ***** -->
-<div class="top-header item6 overlay scrollme animateme" data-when="span" data-from="0" data-to="0.75" data-opacity="1"
-  data-translatey="-50">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 col-md-12">
-        <div class="wrapper">
-          <h1 class="heading">Filter Perfect Domain Name</h1>
-          <h3 class="subheading mb-4">Choose from hundreds of extensions and put your website in the world.</h3>
-          <div class="mb-5">
-            <div class="general-input w-50">
-              <input #domainSearchInput type="text" name="domain" placeholder="Get your next domain name here"
-                class="fill-input" (keyup.enter)="seacrh(domainSearchInput.value)">
-              <input type="button" value="Search" class="btn btn-default-yellow-fill"
-                (click)="seacrh(domainSearchInput.value)">
-            </div>
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <div class="col-sm-12 col-md-12 col-lg-6">
+      <div class="header-width header-main-content-three desk-ml-auto">
+        <div class="header-content-tab">
+          <div class="header-tab-shadow">
+            <div class="header-tab-shadow-inner"></div>
           </div>
-          <a class="btn btn-default-pink-fill cd-filter-trigger wow animated shake delay-2s"><i
-              class="fa fa-filter"></i> Show Filter</a>
+          <div class="header-tab-alert"><i class="flaticon-bell-1"></i></div>
+          <div class="header-tab-content">30% Discount on first annual purchase</div>
+        </div>
+        <h1>Up To <span>20X Faster Web</span> web Hosting</h1>
+        <ul class="header-content-list">
+          <li><i class="flaticon-tick"></i>Up To 90% Off Web Hosting Plans + Free Domain</li>
+          <li><i class="flaticon-tick"></i>Unlimited SSD Space & Transfer </li>
+          <li><i class="flaticon-tick"></i>24/7 Online Support </li>
+        </ul>
+        <div class="domain-search domain-search-three">
+          <form>
+            <div class="form-group">
+              <input #domainSearchInput (keyup.enter)="search(domainSearchInput.value)" type="text" class="form-control"
+                placeholder="Find Your Domain">
+              <!-- <div class="input-group-append">
+                <select class="form-control">
+                  <option value="1">.com</option>
+                  <option value="2">.co</option>
+                  <option value="3">.net</option>
+                </select>
+              </div> -->
+              <button type="button" (click)="search(domainSearchInput.value)" class="btn btn-gradient">Search
+                Now</button>
+            </div>
+          </form>
+          <!-- <div class="domain-search-category">
+            <ul>
+              <li>
+                <a href="#" class="active">.com only $8.88</a>
+              </li>
+              <li>
+                <a href="#">.co only $9.88</a>
+              </li>
+              <li>
+                <a href="#">.info only $6.70</a>
+              </li>
+              <li>
+                <a href="#">.net only $7.80</a>
+              </li>
+            </ul>
+          </div> -->
         </div>
       </div>
     </div>
-  </div>
-</div>
-<!-- ***** CONTROLS ***** -->
-<section class="cd-main-content mb-80 sec-up wow animated fadeInUp fast" id="exact" *ngIf="exactMatchDomain">
-  <div class="cd-filter">
-    <form>
-      <div class="container">
-        <div class="sec-main pb-5 sec-bg1">
-          <div class="plans badge feat bg-pink">{{exactMatchDomain?.available ? 'Available' :
-            'Taken'}}</div>
-          <div class="row">
-            <a class="cd-close"><i class="fas fa-long-arrow-alt-left"></i></a>
-            <div class="col-sm-12">
-              <div class="table-responsive-lg">
-                <table class="table compare">
-                  <tbody>
-                    <tr>
-                      <div class="card mt-2 mb-2">
-                        <div class="card-body p-0">
-                          <table class="table border-0">
-                            <tr class="card-text bg-pink">
-                              <td class="pl-3 pt-2 pb-2 text-white">{{exactMatchDomain?.available ? 'Available' :
-                                'Taken'}}
-                                <span><i class="fa fa-question-circle"></i></span>
-                              </td>
-                              <td class="pt-2 pb-2 text-white" style="text-align:right;" colspan="2">Call
-                                1-800-1210120 for
-                                buying aassistance
-                              </td>
-                            </tr>
-                            <tr class="card-text">
-                              <td class="border-0 pl-3">
-                                <h3>
-                                  <span>{{exactMatchDomain?.domain}} {{' '}} 
-                                    <sup><span *ngIf="exactMatchDomain?.available" class="badge badge-pill badge-success">Available</span></sup>
-                                    <sup><span *ngIf="!exactMatchDomain?.available" class="badge badge-pill badge-danger">Not Available</span></sup>
-                                  </span>
-                                </h3>
-                              </td>
-                              <td class="border-0" *ngIf="exactMatchDomain?.available" style="text-align: right;">
-                                <span *ngIf="exactMatchDomain?.salePrice !== exactMatchDomain?.listPrice"
-                                  class="ltgh">${{exactMatchDomain?.listPrice}}</span>
-                                <b class="c-pink">{{exactMatchDomain?.salePrice}}*</b>
-                                <br>
-                                <!-- <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span> -->
-                              </td>
-                              <td class="border-0" *ngIf="exactMatchDomain?.available">
-                                <span>
-                                  <button type="button" class="btn btn-primary float-right"
-                                    (click)="addToCart('domain', exactMatchDomain.domain)">
-                                    <i class="fa fa-shopping-cart"></i><b> Register</b>
-                                  </button>
-                                </span>
-                              </td>
-                            </tr>
-                          </table>
-                        </div>
-                        <p class="card-text">Other Suggestions</p>
-                        <div class="btn-group" role="group">
-                          <div class="card-text" *ngFor="let suggestion of suggestedDomain">
-                            <button type="button" class="btn btn-primary btn-"
-                              (click)="addDomain(suggestion);">{{suggestion.domain}}</button>
-                          </div>
-                        </div>
-                      </div>
-                    </tr>
 
-                    <tr *ngIf="intrestedDomain?.length > 0" style="width: 100%;">
-                      <div *ngFor="let selectedDomain of intrestedDomain">
-                        <div class="card mt-2 mb-2">
-                          <div class="card-body p-0">
-                            <table class="table border-0">
-                              <tr class="card-text bg-pink">
-                                <td class="pl-3 pt-2 pb-2 text-white">{{selectedDomain.exactMatchDomain?.available ? 'Available' :
-                                  'Taken'}}
-                                  <span><i class="fa fa-question-circle"></i></span>
-                                </td>
-                                <td class="pt-2 pb-2 text-white" style="text-align:right;" colspan="2">Call
-                                  1-800-1210120 for
-                                  buying aassistance
-                                </td>
-                              </tr>
-                              <tr class="card-text">
-                                <td class="border-0 pl-3">
-                                  <h3>
-                                    <span>{{selectedDomain.exactMatchDomain?.domain}} {{' '}}
-                                      <sup><span *ngIf="selectedDomain.exactMatchDomain?.available" class="font-weight-light badge badge-pill badge-success">Available</span></sup>
-                                      <sup><span *ngIf="!selectedDomain.exactMatchDomain?.available" class="font-weight-light badge badge-pill badge-danger">Not Available</span></sup>
-                                    </span>
-                                  </h3>
-                                </td>
-                                <td class="border-0" *ngIf="selectedDomain.exactMatchDomain?.available" style="text-align: right;">
-                                  <span *ngIf="selectedDomain.exactMatchDomain?.salePrice !== selectedDomain.exactMatchDomain?.listPrice"
-                                    class="ltgh">${{selectedDomain.exactMatchDomain?.listPrice}}</span>
-                                  <b class="c-pink">{{selectedDomain.exactMatchDomain?.salePrice}}/y*</b>
-                                  <br>
-                                  <!-- <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span> -->
-                                </td>
-                                <td class="border-0" *ngIf="selectedDomain.exactMatchDomain?.available">
-                                  <span>
-                                    <button type="button" class="btn btn-primary float-right"
-                                      (click)="addToCart('domain', selectedDomain.exactMatchDomain.domain)">
-                                      <i class="fa fa-shopping-cart"></i><b> Register</b>
-                                    </button>
-                                  </span>
-                                </td>
-                              </tr>
-                            </table>
-                          </div>
-                          <p class="font-weight-light card-text">Other Suggestions</p>
-                          <div class="btn-group" role="group">
-                            <div class="card-text" *ngFor="let suggestion of selectedDomain.suggestedDomain">
-                              <button type="button" class="btn btn-primary btn-"
-                                (click)="addDomain(suggestion);">{{suggestion.domain}}</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-            <!-- <div class="col-md-6">
-              <div class="cd-filter-block">
-                <h4>Highlight</h4>
-                <ul class="radio-group radios-filter cd-filter-content list">
-                  <li>
-                    <input value="all" type="radio" name="radioButton" id="radio1" checked />
-                    <label class="radio-label" for="radio1">All Domains</label>
-                  </li>
-                  <li>
-                    <input value=".sale" type="radio" name="radioButton" id="radio2">
-                    <label class="radio-label" for="radio2">Sales</label>
-                  </li>
-                  <li>
-                    <input value=".newest" type="radio" name="radioButton" id="radio3">
-                    <label class="radio-label" for="radio3">Newest</label>
-                  </li>
-                  <li>
-                    <input value=".popular" type="radio" name="radioButton" id="radio4">
-                    <label class="radio-label" for="radio4">Popular</label>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="cd-filter-block checkbox-group">
-                <h4>Types</h4>
-                <ul class="cd-filter-content cd-filters list">
-                  <li>
-                    <input class="filter" value=".gtld" type="checkbox" id="checkbox1">
-                    <label class="checkbox-label" for="checkbox1">gtld (Generic)</label>
-                  </li>
-                  <li>
-                    <input class="filter" value=".cctld" type="checkbox" id="checkbox2">
-                    <label class="checkbox-label" for="checkbox2">cctld (Country)</label>
-                  </li>
-                  <li>
-                    <input class="filter" value=".ngtld" type="checkbox" id="checkbox3">
-                    <label class="checkbox-label" for="checkbox3">ngtld (News)</label>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="cd-filter-block">
-                <div class="cd-filter-content cd-select">
-                  <select class="select-filter">
-                    <option value="all">Select Category</option>
-                    <option value=".business">Business</option>
-                    <option value=".commerce">Commerce</option>
-                    <option value=".social">Social</option>
-                    <option value=".health">Health</option>
-                    <option value=".educations">Education</option>
-                    <option value=".technology">Technology</option>
-                    <option value=".others">Others</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="cd-filter-block checkbox-group">
-                <input type="text" class="input" data-ref="input-search"
-                  placeholder="Enter a domain extension (.com)" />
-              </div>
-            </div>
-            <div class="range-disabled">
-              <input name="minSize" class="range-slider-input tooltip-parent" type="range" min="0" max="5" value="0" />
-              <input name="maxSize" class="range-slider-input tooltip-parent" type="range" min="0" max="5" value="5" />
-            </div> -->
-          </div>
-        </div>
-      </div>
-    </form>
-  </div>
-</section>
-<!-- ***** FILTER PLANS ***** -->
-<div class="mixcontainer sec-normal sec-bg2 motpath" data-ref="container" id="domain-list">
-  <div class="container ">
-    <div class="pricing special">
-      <div class="p-0 m-0">
-        <div class="best-plans pricing">
-          <div class="sec-main sec-bg1">
-
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="table-responsive-lg">
-                  <table class="table compare" *ngIf="recommendedDomains?.length > 0;else elseBlock">
-                    <tbody *ngFor="let d of recommendedDomains">
-                      <ng-container *ngTemplateOutlet="domainTableRow; context: prepareTableRow(d)"></ng-container>
-                      <ng-template #domainTableRow let-domain="domain" let-price="price">
+    <!-- ***** CONTROLS ***** -->
+    <section [hidden]="false" class="cd-main-content mb-80 sec-up wow animated fadeInUp fast" id="exact"
+      *ngIf="exactMatchDomain">
+      <div class="cd-filter">
+        <form>
+          <div class="container">
+            <div class="sec-main pb-5 sec-bg1">
+              <div class="plans badge feat bg-pink">{{exactMatchDomain?.available ? 'Available' :
+                'Taken'}}</div>
+              <div class="row">
+                <a class="cd-close"><i class="fas fa-long-arrow-alt-left"></i></a>
+                <div class="col-sm-12">
+                  <div class="table-responsive-lg">
+                    <table class="table compare">
+                      <tbody>
                         <tr>
                           <div class="card mt-2 mb-2">
-                            <div class="card-body" [ngClass]="{'pt-0 pb-0': domain.Inventory === 'registry_premium'}">
-                              <table class="table" style="border: none !important;">
-                                <tr class="card-text" *ngIf="domain.Inventory === 'registry_premium'">
-                                  <td>Premium <span><i class="fa fa-question-circle"></i></span></td>
-                                  <td style="text-align:right;" colspan="2">Call 1-800-1210120 for buying aassistance
+                            <div class="card-body p-0">
+                              <table class="table border-0">
+                                <tr class="card-text bg-pink">
+                                  <td class="pl-3 pt-2 pb-2 text-white">{{exactMatchDomain?.available ? 'Available' :
+                                    'Taken'}}
+                                    <span><i class="fa fa-question-circle"></i></span>
+                                  </td>
+                                  <td class="pt-2 pb-2 text-white" style="text-align:right;" colspan="2">Call
+                                    1-800-1210120 for
+                                    buying aassistance
                                   </td>
                                 </tr>
                                 <tr class="card-text">
-                                  <td class="border-0"
-                                    [ngClass]="{'p-1 pb-1': domain.Inventory !== 'registry_premium'}">
+                                  <td class="border-0 pl-3">
                                     <h3>
-                                      <b *ngIf="domain.Inventory === 'registry_premium'; else noPremium">{{domain?.Fqdn?.split('.'
-                                        + domain.Extension)[0]}}.{{domain?.Extension}}</b>
-                                      <ng-template #noPremium>
-                                        <span>{{domain?.Fqdn?.split('.' +
-                                          domain.Extension)[0]}}.{{domain?.Extension}}</span>
-                                      </ng-template>
+                                      <span>{{exactMatchDomain?.domain}} {{' '}}
+                                        <sup><span *ngIf="exactMatchDomain?.available"
+                                            class="badge badge-pill badge-success">Available</span></sup>
+                                        <sup><span *ngIf="!exactMatchDomain?.available"
+                                            class="badge badge-pill badge-danger">Not Available</span></sup>
+                                      </span>
                                     </h3>
                                   </td>
-                                  <td class="border-0" [ngClass]="{'p-1 pb-1': domain.Inventory !== 'registry_premium'}"
-                                    style="text-align: right;"><span
-                                      *ngIf="price?.PriceInfo?.TotalCurrentPrice !== price?.PriceInfo?.TotalListPrice"
-                                      class="ltgh">${{price?.PriceInfo?.TotalListPrice}}</span>
-                                    <b *ngIf="domain.Inventory === 'registry_premium'; else noPremiumPrice"
-                                      class="c-pink">${{price?.PriceInfo?.TotalCurrentPrice}}*</b>
-                                    <ng-template #noPremiumPrice>
-                                      <span class="c-pink">${{price?.PriceInfo?.TotalCurrentPrice}}*</span>
-                                    </ng-template>
-
-
+                                  <td class="border-0" *ngIf="exactMatchDomain?.available" style="text-align: right;">
+                                    <span *ngIf="exactMatchDomain?.salePrice !== exactMatchDomain?.listPrice"
+                                      class="ltgh">${{exactMatchDomain?.listPrice}}</span>
+                                    <b class="c-pink">{{exactMatchDomain?.salePrice}}*</b>
                                     <br>
-                                    <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span>
+                                    <!-- <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span> -->
                                   </td>
-                                  <td class="border-0"
-                                    [ngClass]="{'pt-1 pb-1': domain.Inventory !== 'registry_premium'}">
+                                  <td class="border-0" *ngIf="exactMatchDomain?.available">
                                     <span>
-                                      <button type="submit" class="btn btn-primary float-right"
-                                        (click)="addToCart('domain', domain.Fqdn)">
-                                        Register
+                                      <button type="button" class="btn btn-primary float-right"
+                                        (click)="addToCart('domain', exactMatchDomain.domain)">
+                                        <i class="fa fa-shopping-cart"></i><b> Register</b>
                                       </button>
                                     </span>
                                   </td>
                                 </tr>
                               </table>
                             </div>
+                            <p class="card-text">Other Suggestions</p>
+                            <div class="btn-group" role="group">
+                              <div class="card-text" *ngFor="let suggestion of suggestedDomain">
+                                <button type="button" class="btn btn-primary btn-"
+                                  (click)="addDomain(suggestion);">{{suggestion.domain}}</button>
+                              </div>
+                            </div>
                           </div>
                         </tr>
-                      </ng-template>
-                    </tbody>
-                  </table>
-                  <ng-template #elseBlock>
-                    <h2> We are here to help you to search Domains.</h2>
-                  </ng-template>
+
+                        <tr *ngIf="intrestedDomain?.length > 0" style="width: 100%;">
+                          <div *ngFor="let selectedDomain of intrestedDomain">
+                            <div class="card mt-2 mb-2">
+                              <div class="card-body p-0">
+                                <table class="table border-0">
+                                  <tr class="card-text bg-pink">
+                                    <td class="pl-3 pt-2 pb-2 text-white">{{selectedDomain.exactMatchDomain?.available ?
+                                      'Available' :
+                                      'Taken'}}
+                                      <span><i class="fa fa-question-circle"></i></span>
+                                    </td>
+                                    <td class="pt-2 pb-2 text-white" style="text-align:right;" colspan="2">Call
+                                      1-800-1210120 for
+                                      buying aassistance
+                                    </td>
+                                  </tr>
+                                  <tr class="card-text">
+                                    <td class="border-0 pl-3">
+                                      <h3>
+                                        <span>{{selectedDomain.exactMatchDomain?.domain}} {{' '}}
+                                          <sup><span *ngIf="selectedDomain.exactMatchDomain?.available"
+                                              class="font-weight-light badge badge-pill badge-success">Available</span></sup>
+                                          <sup><span *ngIf="!selectedDomain.exactMatchDomain?.available"
+                                              class="font-weight-light badge badge-pill badge-danger">Not
+                                              Available</span></sup>
+                                        </span>
+                                      </h3>
+                                    </td>
+                                    <td class="border-0" *ngIf="selectedDomain.exactMatchDomain?.available"
+                                      style="text-align: right;">
+                                      <span
+                                        *ngIf="selectedDomain.exactMatchDomain?.salePrice !== selectedDomain.exactMatchDomain?.listPrice"
+                                        class="ltgh">${{selectedDomain.exactMatchDomain?.listPrice}}</span>
+                                      <b class="c-pink">{{selectedDomain.exactMatchDomain?.salePrice}}/y*</b>
+                                      <br>
+                                      <!-- <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span> -->
+                                    </td>
+                                    <td class="border-0" *ngIf="selectedDomain.exactMatchDomain?.available">
+                                      <span>
+                                        <button type="button" class="btn btn-primary float-right"
+                                          (click)="addToCart('domain', selectedDomain.exactMatchDomain.domain)">
+                                          <i class="fa fa-shopping-cart"></i><b> Register</b>
+                                        </button>
+                                      </span>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </div>
+                              <p class="font-weight-light card-text">Other Suggestions</p>
+                              <div class="btn-group" role="group">
+                                <div class="card-text" *ngFor="let suggestion of selectedDomain.suggestedDomain">
+                                  <button type="button" class="btn btn-primary btn-"
+                                    (click)="addDomain(suggestion);">{{suggestion.domain}}</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="cd-fail-message">"No items could be found matching the criteria"</div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+
+    <div class="col-sm-12 col-md-12 col-lg-6">
+      <div class="header-content-image">
+        <img src="assets/images/header-clipart-3.png" alt="clipart">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="header-shape-content">
+  <div class="header-shape-item">
+    <img src="assets/images/header-shape-3.png" alt="shape">
+  </div>
+</div>
+
+<!-- .end header -->
+<!-- feature-section -->
+<section class="feature-section pt-100 pb-70">
+  <div class="container">
+    <div class="section-title section-title-two">
+      <h2>Hosting features</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam quis</p>
+    </div>
+    <div class="feature-tab-area">
+      <div class="feature-tab d-flex flex-wrap justify-content-center justify-content-lg-start">
+        <div class="feature-tab-item active" data-feature-tab="1">
+          <div class="feature-tab-item-inner pink-bg-with-border">
+            <div class="feature-tab-icon">
+              <i class="flaticon-forward"></i>
+            </div>
+            Website Transfers
+          </div>
+        </div>
+        <div class="feature-tab-item" data-feature-tab="2">
+          <div class="feature-tab-item-inner blue-bg-with-border">
+            <div class="feature-tab-icon">
+              <i class="flaticon-email"></i>
+            </div>
+            Get Free Email
+          </div>
+        </div>
+        <div class="feature-tab-item" data-feature-tab="3">
+          <div class="feature-tab-item-inner yellow-bg-with-border">
+            <div class="feature-tab-icon">
+              <i class="flaticon-desktop"></i>
+            </div>
+            Website Speed
+          </div>
+        </div>
+        <div class="feature-tab-item" data-feature-tab="4">
+          <div class="feature-tab-item-inner pink-bg-with-border">
+            <div class="feature-tab-icon">
+              <i class="flaticon-collaboration"></i>
+            </div>
+            Free Website CPanel
+          </div>
+        </div>
+      </div>
+      <div class="feature-tab-content">
+        <div class="feature-tab-content-item active" data-feature-details="1">
+          <div class="row align-items-center">
+            <div class="col-sm-12 col-md-5 col-lg-5 pb-30">
+              <div class="feature-tab-image">
+                <img src="assets/images/feature-shape-1.png" alt="shape">
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-7 col-lg-7 pb-30">
+              <div class="desk-pad-left-20 feature-item-content">
+                <h3>Website Transfers</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidinim ipsam
+                  voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consea non numquam eius modi
+                  tempora incidunt ut labore et dol voluptatemuia volupta pernatur aut odit aut fugit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-tab-content-item" data-feature-details="2">
+          <div class="row align-items-center">
+            <div class="col-sm-12 col-md-7 col-lg-7 pb-30">
+              <div class="desk-pad-left-20 feature-item-content">
+                <h3>Get Free Email</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidinim ipsam
+                  voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consea non numquam eius modi
+                  tempora incidunt ut labore et dol voluptatemuia volupta pernatur aut odit aut fugit.</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-5 col-lg-5 pb-30">
+              <div class="feature-tab-image">
+                <img src="assets/images/feature-shape-2.png" alt="shape">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-tab-content-item" data-feature-details="3">
+          <div class="row align-items-center">
+            <div class="col-sm-12 col-md-5 col-lg-5 pb-30">
+              <div class="feature-tab-image">
+                <img src="assets/images/feature-shape-3.png" alt="shape">
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-7 col-lg-7 pb-30">
+              <div class="desk-pad-left-20 feature-item-content">
+                <h3>Website Speed</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidinim ipsam
+                  voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consea non numquam eius modi
+                  tempora incidunt ut labore et dol voluptatemuia volupta pernatur aut odit aut fugit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="feature-tab-content-item" data-feature-details="4">
+          <div class="row align-items-center">
+            <div class="col-sm-12 col-md-7 col-lg-7 pb-30">
+              <div class="desk-pad-left-20 feature-item-content">
+                <h3>Free Website CPanel</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incidinim ipsam
+                  voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consea non numquam eius modi
+                  tempora incidunt ut labore et dol voluptatemuia volupta pernatur aut odit aut fugit.</p>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-5 col-lg-5 pb-30">
+              <div class="feature-tab-image">
+                <img src="assets/images/feature-shape-4.png" alt="shape">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- .end feature-section -->
+<!-- offer-section -->
+<div class="offer-section position-relative section-ptb-180 overflow-hidden">
+  <div class="cloud-shape-bg">
+    <div class="cloud-shape-image">
+      <img src="assets/images/cloud-shape-1.png" alt="shape">
+    </div>
+  </div>
+  <div class="container position-relative">
+    <div class="row margin-minus-box">
+      <div class="col-sm-12 col-lg-6">
+        <div class="feature-item fluid-height">
+          <div class="feature-item-inner full-height bg-white">
+            <div class="feature-item-thumb">
+              <i class="flaticon-cloud-computing"></i>
+            </div>
+            <div class="feature-item-content">
+              <h3>Dedicated Hosting</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elt,tium, totam rem aperiam, eaque ipsa quae ab
+                illo invent ut labore et dolore magnam luptatem.</p>
+              <p><a href="dedicated-hosting.html" class="gradient-text">Learn More <span><i
+                      class='bx bx-chevron-right'></i></span></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-lg-6">
+        <div class="feature-item fluid-height">
+          <div class="feature-item-inner full-height bg-white">
+            <div class="feature-item-thumb">
+              <i class="flaticon-cloud-hosting"></i>
+            </div>
+            <div class="feature-item-content">
+              <h3>Cloud Hosting</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elt,tium, totam rem aperiam, eaque ipsa quae ab
+                illo invent ut labore et dolore magnam luptatem.</p>
+              <p><a href="cloud-hosting.html" class="gradient-text">Learn More <span><i
+                      class='bx bx-chevron-right'></i></span></a></p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<!-- ***** FEATURES ***** -->
-<section id="scroll" class="history-section feat01 sec-normal">
+<!-- .end offer-section -->
+<!-- choose-section -->
+<section class="choose-section pt-100 pb-70">
   <div class="container">
-    <div class="randomline">
-      <div class="bigline"></div>
-      <div class="smallline"></div>
+    <div class="section-title section-title-two">
+      <small>Why best</small>
+      <h2>Why choose us</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim veniam quis </p>
     </div>
-    <div class="sec-main sec-bg1">
-      <div class="row">
-        <div class="col-md-12 col-lg-6 wow animated fadeInUp fast first">
-          <img class="svg" src="assets/patterns/domainmanage.svg" alt="domain management">
-        </div>
-        <div class="col-md-12 col-lg-5 offset-lg-1">
-          <div class="info-content">
-            <h4>Simple Domain Management</h4>
-            <p>But I must explain to you how all this mistaken idea of <a href="#" class="golink">denouncing
-                pleasure</a> and praising pain was born and I will.</p>
-          </div>
-          <a href="" class="btn btn-default-yellow-fill mt-3">Learn more</a>
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-md-12 col-lg-5">
-          <div class="info-content">
-            <h4>Automatic Domain Renewal</h4>
-            <p>But I must explain to you how all this mistaken idea of <a href="#" class="golink">denouncing
-                pleasure</a> and praising pain was born and I will.</p>
-          </div>
-          <a href="" class="btn btn-default-yellow-fill mt-3">Auto-Renewal</a>
-        </div>
-        <div class="col-md-12 col-lg-6 offset-lg-1 backups anima wow animated fadeInUp fast second">
-          <img class="svg" src="assets/patterns/domainrenewal.svg" alt="domain renewal">
-        </div>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-md-12 col-lg-6 wow animated fadeInUp fast third">
-          <img class="svg" src="assets/patterns/support.svg" alt="support 24/7/365">
-        </div>
-        <div class="col-md-12 col-lg-5 offset-lg-1">
-          <div class="info-content">
-            <h4>Don't worry! We have support premium 24/7/365</h4>
-            <p>But I must explain to you how all this mistaken idea of <a href="#" class="golink">denouncing
-                pleasure</a> and praising pain was born and I will.</p>
-          </div>
-          <a href="" class="btn btn-default-yellow-fill mt-3">Get support</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ***** CUSTOMIZE ***** -->
-<section class="sec-normal history-section custom sec-bg3">
-  <div class="faq">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-          <h2 class="section-heading text-white">Advanced domain control made easy</h2>
-          <p class="section-subheading">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt.</p>
-        </div>
-        <div class="col-md-12 col-sm-12">
-          <div class="section-offer services w-100">
-            <div class="tabs offers-tabs">
-              <div class="tabs-header mb-5">
-                <ul>
-                  <li class="col-lg-3 col-md-3 col-sm-12 active">
-                    <i class="icon-features"></i>
-                    <div class="text-white">Easy Management</div>
-                  </li>
-                  <li class="col-lg-3 col-md-3 col-sm-12">
-                    <i class="icon-domainserver"></i>
-                    <div class="text-white">Domain API</div>
-                  </li>
-                  <li class="col-lg-3 col-md-3 col-sm-12">
-                    <i class="icon-lock"></i>
-                    <div class="text-white">Domain Lock</div>
-                  </li>
-                </ul>
+    <div class="row">
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="box-card fluid-height">
+          <div class="box-card-inner box-card-primary full-height">
+            <div class="box-card-content text-center">
+              <div class="box-card-thumb">
+                <img src="assets/images/choose-2-1.png" alt="choose-us">
               </div>
-              <div class="tabs-content text-left scrollme">
-                <div class="tabs-item active">
-                  <div class="row">
-                    <div class="col-md-12 col-lg-6">
-                      <img class="svg" src="assets/patterns/controlpanel.svg" alt="monitoring 24/7/365">
-                    </div>
-                    <div class="col-md-12 col-lg-5 offset-lg-1">
-                      <div class="info-content text-white animateme" data-when="enter" data-from="1" data-to="0"
-                        data-opacity="1" data-translatey="100" data-easeinout="0">
-                        <h4>Change DNS records through an easy-to-use Control Panel</h4>
-                        <p>But I must explain to you how all this mistaken idea of <a href="#" class="golink">denouncing
-                            pleasure</a> and praising pain was born and I will. </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="tabs-item">
-                  <div class="row">
-                    <div class="col-md-12 col-lg-6">
-                      <img class="svg" src="assets/patterns/performance.svg" alt="monitoring 24/7/365">
-                    </div>
-                    <div class="col-md-12 col-lg-5 offset-lg-1">
-                      <div class="info-content text-white animateme" data-when="enter" data-from="1" data-to="0"
-                        data-opacity="1" data-translatey="100" data-easeinout="0">
-                        <h4>Register multiple domains can be done in a matter of seconds</h4>
-                        <p>But I must explain to you how all this mistaken idea of <a href="#" class="golink">denouncing
-                            pleasure</a> and praising pain was born and I will. </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="tabs-item">
-                  <div class="row">
-                    <div class="col-md-12 col-lg-6">
-                      <img class="svg" src="assets/patterns/ssl.svg" alt="monitoring 24/7/365">
-                    </div>
-                    <div class="col-md-12 col-lg-5 offset-lg-1">
-                      <div class="info-content text-white animateme" data-when="enter" data-from="1" data-to="0"
-                        data-opacity="1" data-translatey="100" data-easeinout="0">
-                        <h4>Lock and Unlock it down to prevent unauthorized transfers</h4>
-                        <p>But I must explain to you how all this mistaken idea of <a href="#" class="golink">denouncing
-                            pleasure</a> and praising pain was born and I will. </p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="box-card-details">
+                <h3>Dedicated support</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elt ttotam rem aperiam dolore magnam luptatem.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4">
+        <div class="box-card fluid-height">
+          <div class="box-card-inner box-card-secondary full-height">
+            <div class="box-card-content text-center">
+              <div class="box-card-thumb">
+                <img src="assets/images/choose-2-2.png" alt="choose-us">
+              </div>
+              <div class="box-card-details">
+                <h3>Data security</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elt ttotam rem aperiam dolore magnam luptatem.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 offset-md-3 offset-lg-0">
+        <div class="box-card fluid-height">
+          <div class="box-card-inner box-card-warning full-height">
+            <div class="box-card-content text-center">
+              <div class="box-card-thumb">
+                <img src="assets/images/choose-2-3.png" alt="choose-us">
+              </div>
+              <div class="box-card-details">
+                <h3>Data migration</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elt ttotam rem aperiam dolore magnam luptatem.
+                </p>
               </div>
             </div>
           </div>
@@ -438,151 +426,334 @@
     </div>
   </div>
 </section>
-<!-- ***** FAQ. ***** -->
-<section class="sec-normal sec-bg2">
-  <div class="faq">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12">
-          <h2 class="section-heading">Frequently Asked Questions Hosting</h2>
-          <p class="section-subheading">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt.</p>
-        </div>
-        <div class="col-sm-12">
-          <div class="accordion faq pt-5">
-            <div class="panel-wrap">
-              <div class="panel-title">
-                <span>What is a domain name?</span>
-                <div class="float-right">
-                  <i class="fa fa-plus"></i>
-                  <i class="fa fa-minus c-pink"></i>
-                </div>
-              </div>
-              <div class="panel-collapse">
-                <div class="wrapper-collapse">
-                  <div class="info">
-                    <ul class="list">
-                      <li>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna.</p>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                          anim id est laborum.</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="panel-wrap">
-              <div class="panel-title">
-                <span>What can I do with a domain name?</span>
-                <div class="float-right">
-                  <i class="fa fa-plus"></i>
-                  <i class="fa fa-minus c-pink"></i>
-                </div>
-              </div>
-              <div class="panel-collapse">
-                <div class="wrapper-collapse">
-                  <div class="info">
-                    <ul class="list">
-                      <li>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna.</p>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                          anim id est laborum.</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="panel-wrap">
-              <div class="panel-title">
-                <span>How many domains can I host at Antler?</span>
-                <div class="float-right">
-                  <i class="fa fa-plus"></i>
-                  <i class="fa fa-minus c-pink"></i>
-                </div>
-              </div>
-              <div class="panel-collapse">
-                <div class="wrapper-collapse">
-                  <div class="info">
-                    <ul class="list">
-                      <li>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna.</p>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                          anim id est laborum.</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="panel-wrap">
-              <div class="panel-title">
-                <span>What domain should I buy? </span>
-                <div class="float-right">
-                  <i class="fa fa-plus"></i>
-                  <i class="fa fa-minus c-pink"></i>
-                </div>
-              </div>
-              <div class="panel-collapse">
-                <div class="wrapper-collapse">
-                  <div class="info">
-                    <ul class="list">
-                      <li>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                          labore et dolore magna.</p>
-                        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                          anim id est laborum.</p>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- ***** HELP ***** -->
-<section class="help pt-4 pb-80">
+<!-- .end choose-section -->
+<!-- platform-section -->
+<div class="platform-section pb-70">
   <div class="container">
-    <div class="service-wrap">
-      <div class="row">
-        <div class="col-sm-12 col-md-6 col-lg-6">
-
-          <div class="help-container">
-            <div class="plans badge feat left bg-grey"><i class="fas fa-long-arrow-alt-left"></i></div>
-            <a href="hosting" class="help-item">
-              <div class="img">
-                <img class="svg ico" src="assets/fonts/svg/cloudfiber.svg" alt="">
-              </div>
-              <div class="inform">
-                <div class="title">Go to Cloud Reseller</div>
-                <div class="description">Do you need to host multiple Websites?</div>
-              </div>
-            </a>
+    <div class="row align-items-center">
+      <div class="col-sm-12 col-lg-6">
+        <div class="about-content-item pb-30">
+          <div class="about-content-data">
+            <div class="about-text">
+              <h3>Dedicated Client-End Support</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam quis </p>
+            </div>
+            <ul class="about-list">
+              <li>
+                <div class="about-list-check about-list-check-off-white"><i class="flaticon-tick"></i></div>
+                <div class="about-list-content">
+                  <h3>Security and faster Server</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua</p>
+                </div>
+              </li>
+              <li>
+                <div class="about-list-check about-list-check-off-white"><i class="flaticon-tick"></i></div>
+                <div class="about-list-content">
+                  <h3>24/7 Online & Offline Support</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua</p>
+                </div>
+              </li>
+              <li>
+                <div class="about-list-check about-list-check-off-white"><i class="flaticon-tick"></i></div>
+                <div class="about-list-content">
+                  <h3>Better Speed With Full Panel</h3>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua</p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-6">
-          <div class="help-container">
-            <div class="plans badge feat bg-grey"><i class="fas fa-long-arrow-alt-right"></i></div>
-            <a href="vps" class="help-item">
-              <div class="img">
-                <img class="svg ico" src="assets/fonts/svg/vps.svg" alt="">
+      </div>
+      <div class="col-sm-12 col-lg-6">
+        <div class="about-content-item desk-pad-left-30 pb-30">
+          <div class="about-content-image image-margin-left">
+            <img src="assets/images/support-2.png" alt="support">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- .end platform-section -->
+<!-- pricing-section -->
+<section class="pricing-section position-relative pt-100 pb-50">
+  <div class="cloud-shape-bg-fixed bg-off-white-two">
+    <div class="cloud-shape-image">
+      <img src="assets/images/cloud-shape-1.png" alt="shape">
+    </div>
+  </div>
+  <div class="container position-relative">
+    <div class="section-title section-title-two">
+      <small>Pricing plan</small>
+      <h2>Hosting price</h2>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua. Ut enim ad minim</p>
+    </div>
+    <div class="pricing-table-secondary">
+      <table>
+        <thead>
+          <tr>
+            <th class="th-head text-center"><img src="assets/images/table-header.png" alt="shape"></th>
+            <th>
+              <div class="pricing-secondary-header">
+                <div class="pricing-header-title">
+                  <div class="pricing-header-title-text">Regular</div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicin</p>
+                </div>
+                <div class="pricing-item-amount">
+                  <p>Starting at</p>
+                  <div class="pricing-item-amount-number"><small>$</small>36<span>/Month</span></div>
+                </div>
               </div>
-              <div class="inform">
-                <div class="title">Go to VPS Server</div>
-                <div class="description">Needs scalable resources in Hosting Environment?</div>
+            </th>
+            <th>
+              <div class="pricing-secondary-header">
+                <div class="pricing-header-title">
+                  <div class="pricing-header-title-text">Standard</div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicin</p>
+                </div>
+                <div class="pricing-item-amount">
+                  <p>Starting at</p>
+                  <div class="pricing-item-amount-number"><small>$</small>40<span>/Month</span></div>
+                </div>
               </div>
-            </a>
+            </th>
+            <th>
+              <div class="pricing-secondary-header">
+                <div class="pricing-header-title">
+                  <div class="pricing-header-title-text">Premium</div>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicin</p>
+                </div>
+                <div class="pricing-item-amount">
+                  <p>Starting at</p>
+                  <div class="pricing-item-amount-number"><small>$</small>70<span>/Month</span></div>
+                </div>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <!-- Inside the tbody, there are some classes which are very important for the styling of td. 1. td-list-name: which is used for left-aligned text and indicate the title of the table row. 2. td-check: which is used for the check icon with blue color. 3. td-cancel: which is used for the cross icon with orange color. 4. td-blank: which is used for the blank space of td. -->
+        <tbody>
+          <tr>
+            <td class="td-list-name td-bg">24/7 phone support</td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-cancel"><i class="flaticon-close"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Consultative onboarding</td>
+            <td class="td-cancel"><i class="flaticon-close"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Imported SSL</td>
+            <td class="td-cancel"><i class="flaticon-close"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Bandwidth per month</td>
+            <td>569 GB</td>
+            <td>256 GB</td>
+            <td>1 TB</td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Shared</td>
+            <td>50 GB</td>
+            <td>80 GB</td>
+            <td>100 GB</td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Hosting type</td>
+            <td><strong>Shared</strong></td>
+            <td><strong>Dedicated</strong></td>
+            <td><strong>Shared</strong></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Total sites</td>
+            <td>1</td>
+            <td>4</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Visits per month</td>
+            <td>Up to 21670</td>
+            <td>Up to 70000</td>
+            <td>Unlimited</td>
+          </tr>
+          <tr>
+            <td class="td-blank"></td>
+            <td class="td-blank"></td>
+            <td class="td-blank"></td>
+            <td class="td-blank"></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td class="td-list-name td-bg">Global CDN</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">GEO target</td>
+            <td>Add on</td>
+            <td>Add on</td>
+            <td>Add on</td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">SSL certificates</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Page performance</td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Content performance</td>
+            <td>Add on</td>
+            <td class="td-cancel"><i class="flaticon-close"></i></td>
+            <td>Add on</td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Large FS</td>
+            <td class="td-cancel"><i class="flaticon-close"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">PHP 7 ready</td>
+            <td class="td-cancel"><i class="flaticon-close"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Multisite ready</td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+          </tr>
+          <tr>
+            <td class="td-blank"></td>
+            <td class="td-blank"></td>
+            <td class="td-blank"></td>
+            <td class="td-blank"></td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <td class="td-list-name td-bg">Transferable sites</td>
+            <td class="td-cancel"><i class="flaticon-close"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Dev, stage, prod</td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-cancel"><i class="flaticon-close"></i></td>
+            <td class="td-cancel"><i class="flaticon-close"></i></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Imported SSL</td>
+            <td>$5.99</td>
+            <td>$15.94</td>
+            <td>$25.54</td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Readiness assessment</td>
+            <td>Limited</td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td>Unlimited</td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Success management</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">Application performance</td>
+            <td class="td-cancel"><i class="flaticon-close"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+          </tr>
+          <tr>
+            <td class="td-list-name td-bg">High availability</td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+            <td class="td-check"><i class="flaticon-check"></i></td>
+          </tr>
+          <tr>
+            <td class="td-main td-bg"></td>
+            <td><a href="cart.html" class="btn btn-gradient">Buy Now</a></td>
+            <td><a href="cart.html" class="btn btn-gradient">Buy Now</a></td>
+            <td><a href="cart.html" class="btn btn-gradient">Buy Now</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<!-- .end pricing-section -->
+<!-- testimonial-section -->
+<section class="testimonial-section bg-off-white position-relative overflow-hidden">
+  <div class="cloud-shape-top">
+    <div class="cloud-shape-image">
+      <img src="assets/images/cloud-shape-1.png" alt="shape">
+    </div>
+  </div>
+  <div class="container">
+    <div class="section-title">
+      <small>Testimonials</small>
+      <h2>What clients are saying</h2>
+    </div>
+    <div class="client-carousel-content">
+      <div class="client-carousel owl-carousel owl-theme">
+        <div class="item">
+          <div class="row align-items-end">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <div class="client-image">
+                <img src="assets/images/slider-1.png" alt="client">
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 pb-100">
+              <div class="client-carousel-details text-center text-lg-start">
+                <p class="client-carousel-para">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor
+                  incididunt ut labore dolore. Lorem ipsum dolor sit amet elit, consectetur adipisicing amet.</p>
+                <h3 class="client-carousel-name">Devit m. kotlin</h3>
+                <h4 class="client-carousel-designation">CEO & Founder</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="row align-items-end">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <div class="client-image">
+                <img src="assets/images/slider-2.png" alt="client">
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-6 pb-100">
+              <div class="client-carousel-details text-center text-lg-start">
+                <p class="client-carousel-para">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor
+                  incididunt ut labore dolore. Lorem ipsum dolor sit amet elit, consectetur adipisicing amet.</p>
+                <h3 class="client-carousel-name">Alexa Disuza</h3>
+                <h4 class="client-carousel-designation">CTO & Manager</h4>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+<!-- .end testimonial-section -->

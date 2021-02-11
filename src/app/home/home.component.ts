@@ -28,43 +28,43 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    
+
   }
 
-  
 
-  seacrh(value: string) {
+
+  search(value: string) {
     forkJoin([this.domainService.searchRecommended(value), this.domainService.searchSpin(value)])
       .subscribe(([exact, spin]) => {
-        
+
         this.exactMatchDomain = exact?.exactMatchDomain;
         this.suggestedDomain = exact?.suggestedDomains
         this.priceByTLD = groupBy(spin.Products, 'Tld');
         this.recommendedDomains = spin['RecommendedDomains'];
-        
-        
-        this.document.getElementById('exact').scrollIntoView({
-          behavior: 'smooth'
-        });
+
+
+        // this.document.getElementById('exact').scrollIntoView({
+        //   behavior: 'smooth'
+        // });
       });
   }
 
-  addDomain(domain :any){
-    
+  addDomain(domain: any) {
+
     forkJoin([this.domainService.searchRecommended(domain.domain), this.domainService.searchSpin(domain.domain)])
       .subscribe(([exact, spin]) => {
-        
+
         this.eDomain = exact?.exactMatchDomain;
         this.sDomain = exact?.suggestedDomains
         this.pByTLD = groupBy(spin.Products, 'Tld');
         this.recDomains = spin['RecommendedDomains'];
-        
-        
+
+
         this.document.getElementById('exact').scrollIntoView({
           behavior: 'smooth'
         });
-        this.intrestedDomain.push({exactMatchDomain:this.eDomain,suggestedDomain:this.sDomain,priceByTLD:this.pByTLD,recommendedDomains:this.recDomains});
-      });    
+        this.intrestedDomain.push({ exactMatchDomain: this.eDomain, suggestedDomain: this.sDomain, priceByTLD: this.pByTLD, recommendedDomains: this.recDomains });
+      });
     console.log(this.intrestedDomain);
   }
   prepareTableRow(domain) {
