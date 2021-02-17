@@ -36,7 +36,7 @@ body {
   padding: 0;
   font-family: 'DM Sans', sans-serif;
   position: relative;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 
 .mt-5 {
@@ -712,7 +712,7 @@ button:focus, button:active {
 }
 
 .btn:hover {
-  color: #2647c8;
+  /* color: #2647c8; */
 }
 
 .btn-pill {
@@ -3732,7 +3732,7 @@ button:focus, button:active {
 .header-bg-shape-three {
   position: relative;
   height: auto;
-  background: url(../images/header-bg-shape-3.png);
+  /* background: url(../images/header-bg-shape-3.png); */
   background-repeat: no-repeat;
   background-size: 55% 100%;
   background-position: right;
@@ -3862,7 +3862,7 @@ button:focus, button:active {
   border-radius: 3px;
 }
 
-.domain-search-three form {
+.domain-search-three .form {
   padding: 10px;
   -webkit-box-shadow: 0px 11px 92.12px 5.88px rgba(52, 52, 52, 0.15);
           box-shadow: 0px 11px 92.12px 5.88px rgba(52, 52, 52, 0.15);

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <div class="row align-items-center">
+  <div class="row align-items-center justify-content-center">
     <div class="col-sm-12 col-md-12 col-lg-6">
       <div class="header-width header-main-content-three desk-ml-auto">
         <div class="header-content-tab">
@@ -16,7 +16,7 @@
           <li><i class="flaticon-tick"></i>24/7 Online Support </li>
         </ul>
         <div class="domain-search domain-search-three">
-          <form>
+          <div class="form">
             <div class="form-group">
               <input #domainSearchInput (keyup.enter)="search(domainSearchInput.value)" type="text" class="form-control"
                 placeholder="Find Your Domain">
@@ -30,7 +30,7 @@
               <button type="button" (click)="search(domainSearchInput.value)" class="btn btn-gradient">Search
                 Now</button>
             </div>
-          </form>
+          </div>
           <!-- <div class="domain-search-category">
             <ul>
               <li>
@@ -58,127 +58,63 @@
         <form>
           <div class="container">
             <div class="sec-main pb-5 sec-bg1">
-              <div class="plans badge feat bg-pink">{{exactMatchDomain?.available ? 'Available' :
-                'Taken'}}</div>
               <div class="row">
-                <a class="cd-close"><i class="fas fa-long-arrow-alt-left"></i></a>
                 <div class="col-sm-12">
-                  <div class="table-responsive-lg">
-                    <table class="table compare">
-                      <tbody>
-                        <tr>
-                          <div class="card mt-2 mb-2">
-                            <div class="card-body p-0">
-                              <table class="table border-0">
-                                <tr class="card-text bg-pink">
-                                  <td class="pl-3 pt-2 pb-2 text-white">{{exactMatchDomain?.available ? 'Available' :
-                                    'Taken'}}
-                                    <span><i class="fa fa-question-circle"></i></span>
-                                  </td>
-                                  <td class="pt-2 pb-2 text-white" style="text-align:right;" colspan="2">Call
-                                    1-800-1210120 for
-                                    buying aassistance
-                                  </td>
-                                </tr>
-                                <tr class="card-text">
-                                  <td class="border-0 pl-3">
-                                    <h3>
-                                      <span>{{exactMatchDomain?.domain}} {{' '}}
-                                        <sup><span *ngIf="exactMatchDomain?.available"
-                                            class="badge badge-pill badge-success">Available</span></sup>
-                                        <sup><span *ngIf="!exactMatchDomain?.available"
-                                            class="badge badge-pill badge-danger">Not Available</span></sup>
-                                      </span>
-                                    </h3>
-                                  </td>
-                                  <td class="border-0" *ngIf="exactMatchDomain?.available" style="text-align: right;">
-                                    <span *ngIf="exactMatchDomain?.salePrice !== exactMatchDomain?.listPrice"
-                                      class="ltgh">${{exactMatchDomain?.listPrice}}</span>
-                                    <b class="c-pink">{{exactMatchDomain?.salePrice}}*</b>
-                                    <br>
-                                    <!-- <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span> -->
-                                  </td>
-                                  <td class="border-0" *ngIf="exactMatchDomain?.available">
-                                    <span>
-                                      <button type="button" class="btn btn-primary float-right"
-                                        (click)="addToCart('domain', exactMatchDomain.domain)">
-                                        <i class="fa fa-shopping-cart"></i><b> Register</b>
-                                      </button>
-                                    </span>
-                                  </td>
-                                </tr>
-                              </table>
-                            </div>
-                            <p class="card-text">Other Suggestions</p>
-                            <div class="btn-group" role="group">
-                              <div class="card-text" *ngFor="let suggestion of suggestedDomain">
-                                <button type="button" class="btn btn-primary btn-"
-                                  (click)="addDomain(suggestion);">{{suggestion.domain}}</button>
-                              </div>
+                  <div *ngFor="let selectedDomain of intrestedDomain; let i = index">
+                    <div class="row"
+                      [ngClass]="!selectedDomain.exactMatchDomain?.available ? 'domain-search-result not-available' : 'domain-search-result available'">
+                      <div class="delete-result" (click)="intrestedDomain.splice(i, 1)">×</div>
+                      <div class="col-1 pt-1 pt-md-0" style="min-width: 60px;">
+                        <div [ngClass]="!selectedDomain.exactMatchDomain?.available ? 'circle-loader fail' : 'circle-loader success'">
+                          <div class="indicator"></div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <!---->
+                        <div class="row">
+                          <div class="col-12 col-md-8">
+                            <h2 class="d-inline-block mr-1 text-uppercase pt-2 pt-md-0">
+                              {{selectedDomain.exactMatchDomain.domain?.split('.')[0]}}<span class="domain-extension"
+                                style="cursor: pointer;">.{{selectedDomain.exactMatchDomain.domain?.split('.')[1]}}</span>
+                            </h2>
+                            <span class="domain-availability-label">
+                              <span [ngClass]="selectedDomain.exactMatchDomain?.available ? 'domain-available' : 'domain-not-available'">
+                                {{ selectedDomain.exactMatchDomain?.available ? 'Available' : 'Not Available' }}
+                              </span>
+                            </span>
+                            <div *ngIf="selectedDomain.exactMatchDomain?.available" class="sale-item-price pt-1 pt-md-0">
+                              <span>{{selectedDomain.exactMatchDomain?.salePrice}}/y</span>
                             </div>
                           </div>
-                        </tr>
-
-                        <tr *ngIf="intrestedDomain?.length > 0" style="width: 100%;">
-                          <div *ngFor="let selectedDomain of intrestedDomain">
-                            <div class="card mt-2 mb-2">
-                              <div class="card-body p-0">
-                                <table class="table border-0">
-                                  <tr class="card-text bg-pink">
-                                    <td class="pl-3 pt-2 pb-2 text-white">{{selectedDomain.exactMatchDomain?.available ?
-                                      'Available' :
-                                      'Taken'}}
-                                      <span><i class="fa fa-question-circle"></i></span>
-                                    </td>
-                                    <td class="pt-2 pb-2 text-white" style="text-align:right;" colspan="2">Call
-                                      1-800-1210120 for
-                                      buying aassistance
-                                    </td>
-                                  </tr>
-                                  <tr class="card-text">
-                                    <td class="border-0 pl-3">
-                                      <h3>
-                                        <span>{{selectedDomain.exactMatchDomain?.domain}} {{' '}}
-                                          <sup><span *ngIf="selectedDomain.exactMatchDomain?.available"
-                                              class="font-weight-light badge badge-pill badge-success">Available</span></sup>
-                                          <sup><span *ngIf="!selectedDomain.exactMatchDomain?.available"
-                                              class="font-weight-light badge badge-pill badge-danger">Not
-                                              Available</span></sup>
-                                        </span>
-                                      </h3>
-                                    </td>
-                                    <td class="border-0" *ngIf="selectedDomain.exactMatchDomain?.available"
-                                      style="text-align: right;">
-                                      <span
-                                        *ngIf="selectedDomain.exactMatchDomain?.salePrice !== selectedDomain.exactMatchDomain?.listPrice"
-                                        class="ltgh">${{selectedDomain.exactMatchDomain?.listPrice}}</span>
-                                      <b class="c-pink">{{selectedDomain.exactMatchDomain?.salePrice}}/y*</b>
-                                      <br>
-                                      <!-- <span>${{price?.PriceInfo?.RenewalPrice}}*/yr when you renew</span> -->
-                                    </td>
-                                    <td class="border-0" *ngIf="selectedDomain.exactMatchDomain?.available">
-                                      <span>
-                                        <button type="button" class="btn btn-primary float-right"
-                                          (click)="addToCart('domain', selectedDomain.exactMatchDomain.domain)">
-                                          <i class="fa fa-shopping-cart"></i><b> Register</b>
-                                        </button>
-                                      </span>
-                                    </td>
-                                  </tr>
-                                </table>
-                              </div>
-                              <p class="font-weight-light card-text">Other Suggestions</p>
-                              <div class="btn-group" role="group">
-                                <div class="card-text" *ngFor="let suggestion of selectedDomain.suggestedDomain">
-                                  <button type="button" class="btn btn-primary btn-"
-                                    (click)="addDomain(suggestion);">{{suggestion.domain}}</button>
-                                </div>
-                              </div>
-                            </div>
+                  
+                          <div *ngIf="selectedDomain.exactMatchDomain?.available" class="col-12 col-md-4 pt-2 pt-md-0 text-right">
+                            <button class="btn btn-rounded btn-green btn-ico btn-col"
+                              (click)="addToCart('domain', selectedDomain.exactMatchDomain.domain)">
+                              <i class="bi bi-cart-check"></i>
+                              <span>Register now!</span>
+                            </button>
+                            <!---->
+                            <!---->
                           </div>
-                        </tr>
-                      </tbody>
-                    </table>
+                        </div>
+                        <!---->
+                        <!---->
+                      </div>
+                      <div class="row mt-2">
+                        <div class="col-12">
+                          <hr>
+                        </div>
+                        <div class="col-12"><span class="domain-other-suggestions">Other suggestions:</span></div>
+                        <div class="col">
+                          <span class="suggested-domain" (click)="addDomain(suggestion);"
+                            *ngFor="let suggestion of selectedDomain.suggestedDomain">
+                            {{suggestion.domain.split('.')[0]}}<span
+                              class="font-weight-bold">.{{suggestion.domain.split('.')[1]}}</span></span>
+                          <!---->
+                        </div>
+                      </div>
+                      <!---->
+                    </div>
                   </div>
                 </div>
               </div>
@@ -189,18 +125,18 @@
     </section>
 
 
-    <div class="col-sm-12 col-md-12 col-lg-6">
+    <!-- <div class="col-sm-12 col-md-12 col-lg-6">
       <div class="header-content-image">
         <img src="assets/images/header-clipart-3.png" alt="clipart">
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
-<div class="header-shape-content">
+<!-- <div class="header-shape-content">
   <div class="header-shape-item">
     <img src="assets/images/header-shape-3.png" alt="shape">
   </div>
-</div>
+</div> -->
 
 <!-- .end header -->
 <!-- feature-section -->

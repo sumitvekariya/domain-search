@@ -42,6 +42,7 @@ export class HomeComponent implements OnInit {
         this.priceByTLD = groupBy(spin.Products, 'Tld');
         this.recommendedDomains = spin['RecommendedDomains'];
 
+        this.intrestedDomain.push({ exactMatchDomain: this.exactMatchDomain, suggestedDomain: this.suggestedDomain, priceByTLD: this.priceByTLD, recommendedDomains: this.recommendedDomains });
 
         // this.document.getElementById('exact').scrollIntoView({
         //   behavior: 'smooth'
@@ -54,16 +55,12 @@ export class HomeComponent implements OnInit {
     forkJoin([this.domainService.searchRecommended(domain.domain), this.domainService.searchSpin(domain.domain)])
       .subscribe(([exact, spin]) => {
 
-        this.eDomain = exact?.exactMatchDomain;
-        this.sDomain = exact?.suggestedDomains
-        this.pByTLD = groupBy(spin.Products, 'Tld');
-        this.recDomains = spin['RecommendedDomains'];
+        this.exactMatchDomain = exact?.exactMatchDomain;
+        this.suggestedDomain = exact?.suggestedDomains
+        this.priceByTLD = groupBy(spin.Products, 'Tld');
+        this.recommendedDomains = spin['RecommendedDomains'];
 
-
-        this.document.getElementById('exact').scrollIntoView({
-          behavior: 'smooth'
-        });
-        this.intrestedDomain.push({ exactMatchDomain: this.eDomain, suggestedDomain: this.sDomain, priceByTLD: this.pByTLD, recommendedDomains: this.recDomains });
+        this.intrestedDomain.push({ exactMatchDomain: this.exactMatchDomain, suggestedDomain: this.suggestedDomain, priceByTLD: this.priceByTLD, recommendedDomains: this.recommendedDomains });
       });
     console.log(this.intrestedDomain);
   }
