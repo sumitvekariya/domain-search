@@ -78,7 +78,7 @@ export class HomeComponent implements OnInit {
     this.domainService.addToCart(items).subscribe({
       next: (d) => {
         console.log(d);
-        this.document.location.href = cart.nextStepUrl;
+        this.document.location.href = d.nextStepUrl;
       },
       error: (e) => {
         console.log(e, cart);
