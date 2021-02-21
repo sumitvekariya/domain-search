@@ -55,7 +55,6 @@
     <section [hidden]="false" class="cd-main-content mb-80 sec-up wow animated fadeInUp fast" id="exact"
       *ngIf="exactMatchDomain">
       <div class="cd-filter">
-        <form>
           <div class="container">
             <div class="sec-main pb-5 sec-bg1">
               <div class="row">
@@ -88,7 +87,7 @@
                           </div>
                   
                           <div *ngIf="selectedDomain.exactMatchDomain?.available" class="col-12 col-md-4 pt-2 pt-md-0 text-right">
-                            <button class="btn btn-rounded btn-green btn-ico btn-col"
+                            <button type="button" class="btn btn-rounded btn-green btn-ico btn-col"
                               (click)="addToCart('domain', selectedDomain.exactMatchDomain.domain)">
                               <i class="bi bi-cart-check"></i>
                               <span>Register now!</span>
@@ -120,7 +119,6 @@
               </div>
             </div>
           </div>
-        </form>
       </div>
     </section>
 
