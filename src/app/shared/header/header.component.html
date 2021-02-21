@@ -35,7 +35,7 @@
 </div>
 <!-- .end topbar -->
 <!-- header -->
-<header class="header-banner header-bg-shape-three">
+<header class="header-banner">
   <!-- navbar -->
   <div class="fixed-top">
     <div class="navbar-area">
@@ -47,9 +47,9 @@
         <!-- mobile navbar-option -->
         <div class="navbar-option">
           <div class="navbar-option-item navbar-option-dots dropdown">
-            <button type="button" id="dot" aria-haspopup="true" aria-expanded="false">
+            <!-- <button type="button" id="dot" aria-haspopup="true" aria-expanded="false">
               <i class="bx bx-dots-horizontal-rounded"></i>
-            </button>
+            </button> -->
             <ul class="dropdown-menu navbar-dots-dropdown">
               <li class="dropdown-item">
                 <div class="navbar-option-item dropdown">
@@ -68,14 +68,14 @@
                   </div>
                 </div>
               </li>
-              <li class="dropdown-item">
+              <!-- <li class="dropdown-item">
                 <div class="navbar-option-item">
                   <a href="cart.html" target="_blank" class="shopping-cart navbar-option-icon">
                     <span><i class="flaticon-shopping-bags"></i></span>
                     <span class="shopping-cart-tooltip">2</span>
                   </a>
                 </div>
-              </li>
+              </li> -->
             </ul>
           </div>
           <div class="navbar-option-item navbar-option-search dropdown mobile-hide">
@@ -93,10 +93,10 @@
               </form>
             </div>
           </div>
-          <div class="navbar-option-item navbar-option-cart mobile-hide">
-            <a href="cart.html" target="_blank" class="shopping-cart navbar-option-icon">
+          <div class="navbar-option-item navbar-option-cart">
+            <a [href]="cart?.nextStepUrl" target="_blank" class="shopping-cart navbar-option-icon">
               <span><i class="flaticon-shopping-bags"></i></span>
-              <span class="shopping-cart-tooltip">2</span>
+              <span class="shopping-cart-tooltip">{{cart?.cartCount || '0'}}</span>
             </a>
           </div>
           <div class="navbar-option-item navbar-option-account">
