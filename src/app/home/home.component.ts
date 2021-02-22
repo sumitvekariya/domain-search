@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
         this.priceByTLD = groupBy(spin.Products, 'Tld');
         this.recommendedDomains = spin['RecommendedDomains'];
 
-        this.intrestedDomain.push({ exactMatchDomain: this.exactMatchDomain, suggestedDomain: this.suggestedDomain, priceByTLD: this.priceByTLD, recommendedDomains: this.recommendedDomains });
+        this.intrestedDomain.unshift({ exactMatchDomain: this.exactMatchDomain, suggestedDomain: this.suggestedDomain, priceByTLD: this.priceByTLD, recommendedDomains: this.recommendedDomains });
 
         // this.document.getElementById('exact').scrollIntoView({
         //   behavior: 'smooth'
